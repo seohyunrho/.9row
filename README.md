@@ -22,10 +22,10 @@
 
 저장한 학력 정보를 선택하면 지원서의 학교·재학기간·전공·학점 항목이 차례로 채워집니다.
 
-[![학력 정보 자동 입력 시연. 이미지를 누르면 약 26초 영상을 볼 수 있습니다.](docs/readme-assets/2026-10-08-v06/extension-preview.png)](docs/readme-assets/2026-10-08-v06/extension-demo.webm)
+https://github.com/user-attachments/assets/83689b78-1c41-4d91-8766-561fee88e403
 
 <p align="center">
-  <a href="docs/readme-assets/2026-10-08-v06/extension-demo.webm"><b>▶ 약 26초로 보는 실제 작동 모습</b></a><br />
+  <a href="https://github.com/user-attachments/assets/83689b78-1c41-4d91-8766-561fee88e403"><b>▶ 약 26초로 보는 실제 작동 모습</b></a><br />
   <sub>저장한 정보 선택 → 입력란 확인 → 자동 입력 → 결과 확인</sub>
 </p>
 
