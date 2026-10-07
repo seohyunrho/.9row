@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     if (req.method === 'GET' && route === '/api/config') {
       const status = gemini.status();
       return json(res, 200, { aiConnected: status.verified, aiConfigured: status.configured,
-        storage: 'Supabase', deployment: 'cloud', extensionMode: 'local-only', imageText: 'deferred' });
+        storage: 'Supabase', deployment: 'cloud', extensionMode: 'cloud-tab', imageText: 'deferred' });
     }
     if (req.method === 'GET' && route === '/api/state') return json(res, 200, await store.read(url.searchParams.get('workspace') || 'personal'));
     if (req.method === 'PUT' && route === '/api/state') {

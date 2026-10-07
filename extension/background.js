@@ -1,6 +1,29 @@
 const endpoint='http://127.0.0.1:4317/api/extension/capture';
 const fixture='http://127.0.0.1:4317/extension-test.html';
 const secureStorage=chrome.storage.local.setAccessLevel({accessLevel:'TRUSTED_CONTEXTS'});
+const cloudServer='https://9row.vercel.app';
+// Runs only in the isolated world of the exact, already signed-in app origin.
+async function readCloudTab(operation){
+  if(location.origin!=='https://9row.vercel.app'||!['status','profile'].includes(operation))return {error:'온라인 사무실 탭을 확인해 주세요.'};
+  try{
+    const response=await fetch('/api/autofill/'+operation,{credentials:'same-origin',cache:'no-store',redirect:'error',signal:AbortSignal.timeout(10000)});
+    if(!response.ok||!response.headers.get('content-type')?.includes('application/json'))return {error:'온라인 사무실에서 로그인과 연결 상태를 확인한 뒤 다시 시도해 주세요.'};
+    const data=await response.json();
+    if(operation==='status'&&(data.version!==3||data.mode!=='cloud-tab'))return {error:'온라인 사무실을 새로고침해 주세요.'};
+    if(operation==='profile'&&(data.workspace!=='personal'||!Array.isArray(data.sections)))return {error:'기본 정보 응답을 확인하지 못했어요.'};
+    return {data};
+  }catch{return {error:'같은 크롬에서 9row.vercel.app에 로그인하고 탭을 열어 두세요.'};}
+}
+async function cloudApi(operation){
+  const tabs=await chrome.tabs.query({url:cloudServer+'/*'});
+  const tab=tabs.find(t=>Number.isInteger(t.id)&&t.url&&new URL(t.url).origin===cloudServer);
+  if(!tab)throw Error('같은 크롬에서 9row.vercel.app에 로그인하고 탭을 열어 두세요.');
+  let result;
+  try{[result]=await chrome.scripting.executeScript({target:{tabId:tab.id,frameIds:[0]},world:'ISOLATED',func:readCloudTab,args:[operation]});}
+  catch{throw Error('온라인 사무실 탭을 새로고침하고 확장의 사이트 접근 권한을 확인해 주세요.');}
+  if(!result?.result?.data)throw Error(result?.result?.error||'온라인 사무실 연결을 확인하지 못했어요.');
+  return result.result.data;
+}
 const servers=['http://127.0.0.1:4317','http://127.0.0.1:4318'];
 async function api(server,token,route){
   if(!servers.includes(server))throw Error('모아 사무실 주소를 확인해 주세요.');
@@ -14,6 +37,11 @@ async function api(server,token,route){
 async function autofill(message){
   await secureStorage;
   if(message.type==='autofill-connect'){
+    if(message.server===cloudServer){
+      await cloudApi('status');
+      await chrome.storage.session.set({autofillConnection:{server:cloudServer,mode:'cloud-tab'}});
+      return {ok:true};
+    }
     const status=await api(message.server,message.token,'/api/extension/status');
     if(status.version!==2)throw Error('모아 서버를 최신 버전으로 다시 실행해 주세요.');
     await chrome.storage.session.set({autofillConnection:{server:message.server,token:message.token}});
@@ -24,6 +52,10 @@ async function autofill(message){
   if(message.type==='autofill-status')return {ok:true,connected:Boolean(connection),server:connection?.server};
   if(!connection)throw Error('먼저 모아와 연결해 주세요.');
   if(message.type==='autofill-profile'){
+    if(connection.server===cloudServer){
+      if(message.workspace!=='personal')throw Error('온라인에서는 내 기본 정보만 가져올 수 있어요.');
+      return {ok:true,...await cloudApi('profile')};
+    }
     if(!['personal','demo'].includes(message.workspace))throw Error('사무실을 선택해 주세요.');
     return {ok:true,...await api(connection.server,connection.token,`/api/extension/profile?workspace=${message.workspace}`)};
   }

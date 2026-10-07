@@ -1,5 +1,11 @@
 import {allowedPage,formAgent,automaticPlan,educationFamily} from './autofill-core.js';
 const $=id=>document.getElementById(id);
+const isCloud=()=>$('server').value==='https://9row.vercel.app';
+function connectionView(){
+  $('cloud-help').hidden=!isCloud();$('local-connection').hidden=isCloud();
+  $('workspace').value='personal';$('token').value='';
+}
+
 $('extension-version').textContent='확장 '+(chrome.runtime.getManifest?.().version||'미리보기');
 let sections=[],scan=null,targetTab=null,mappings=[],connected=false,working=false;
 let activeRecord=null,batchPlans=null;
@@ -113,9 +119,9 @@ function renderPreview(){
   }
   $('scan-note').textContent='저장된 정보는 항목별 선택 없이 자동으로 연결합니다. 연결되지 않은 항목은 이번 입력에 포함하지 않습니다.'+(scan.hasFrames?' 페이지에 별도 프레임이 있습니다. 그 안에 지원서 입력란이 있는지는 아직 확인하지 못했습니다.':'');
 }
-$('connect').onclick=()=>run(async()=>{if(!/^[a-f0-9]{64}$/.test($('token').value.trim()))throw Error('연결 코드가 비어 있거나 형식이 달라요. 모아 웹의 설정 → 연결 상태 → 연결 코드 복사에서 가져와 주세요.');await send('autofill-connect',{server:$('server').value,token:$('token').value.trim()});$('token').value='';connected=true;clearProfile();$('connection-status').textContent='연결됨';$('disconnect').hidden=false;$('connection-result').textContent='연결했어요.';$('connection-result').dataset.error='false';$('connection').open=false;message('연결했어요. 가져올 자료 공간을 확인해 주세요.');});
+$('connect').onclick=()=>run(async()=>{if(!isCloud()&&!/^[a-f0-9]{64}$/.test($('token').value.trim()))throw Error('연결 코드가 비어 있거나 형식이 달라요. 모아 웹의 설정 → 연결 상태 → 연결 코드 복사에서 가져와 주세요.');await send('autofill-connect',{server:$('server').value,token:$('token').value.trim()});$('token').value='';connected=true;clearProfile();$('connection-status').textContent='연결됨';$('disconnect').hidden=false;$('connection-result').textContent='연결했어요.';$('connection-result').dataset.error='false';$('connection').open=false;message('연결했어요. 내 기본 정보를 불러와 주세요.');});
 $('disconnect').onclick=()=>run(async()=>{await send('autofill-disconnect');connected=false;clearProfile();$('connection-status').textContent='연결 전';$('disconnect').hidden=true;message('연결을 해제했어요.');});
-$('server').onchange=()=>run(async()=>{await send('autofill-disconnect');connected=false;clearProfile();$('connection-status').textContent='재연결 필요';message('선택한 사무실에서 복사한 코드로 다시 연결해 주세요.');});
+$('server').onchange=()=>{connectionView();return run(async()=>{await send('autofill-disconnect');connected=false;clearProfile();$('connection-status').textContent='재연결 필요';message(isCloud()?'온라인 사무실에 로그인한 뒤 연결 확인을 눌러 주세요.':'선택한 사무실에서 복사한 코드로 다시 연결해 주세요.');});};
 $('workspace').onchange=()=>{clearProfile();message('선택한 공간의 기본 정보를 다시 불러와 주세요.');};
 $('load').onclick=()=>run(async()=>{clearProfile();const r=await send('autofill-profile',{workspace:$('workspace').value});sections=r.sections;$('section').replaceChildren(...sections.map(s=>option(s.key,s.label)));$('record-picker').hidden=false;showSection();message('저장한 정보를 불러왔어요. 사이트에는 아직 입력하지 않았습니다.');});
 $('section').onchange=showSection;$('record').onchange=showRecord;
@@ -298,4 +304,4 @@ async function fillEducations(){
 $('fill').onclick=()=>run(()=>isBatch()?fillEducations():fillCurrent());
 $('legacy-connect').onclick=()=>run(async()=>{const {autofillConnection:c}=await chrome.storage.session.get('autofillConnection');if(c?.server!=='http://127.0.0.1:4317')throw Error('기존 제출 시험은 4317 사무실 연결이 필요해요.');await chrome.storage.local.set({token:c.token});message('로컬 제출 시험 연결 코드를 저장했어요.');});
 $('retry').onclick=()=>run(async()=>{await send('retry');const {pending={},lastResult=''}=await chrome.storage.local.get(['pending','lastResult']);$('legacy-result').textContent=lastResult+' 대기 '+Object.keys(pending).length+'건';message('대기 기록 전송을 확인했어요.');});
-run(async()=>{const r=await send('autofill-status');connected=r.connected;if(connected){$('server').value=r.server;$('connection-status').textContent='연결됨';$('connection').open=false;$('disconnect').hidden=false;}message(connected?'가져올 자료 공간을 확인해 주세요.':'모아 설정에서 연결 코드를 복사해 연결해 주세요.');});
+run(async()=>{const r=await send('autofill-status');connected=r.connected;if(connected){$('server').value=r.server;$('connection-status').textContent='연결됨';$('connection').open=false;$('disconnect').hidden=false;}connectionView();message(connected?'내 기본 정보를 불러와 주세요.':isCloud()?'온라인 사무실에 로그인한 뒤 연결 확인을 눌러 주세요.':'모아 설정에서 연결 코드를 복사해 연결해 주세요.');});

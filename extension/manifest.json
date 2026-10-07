@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "모아 · 지원서 입력 도우미",
   "description": "저장한 학력·자격증을 미리 확인하고 S-OIL·HS효성·현대오토에버 지원서의 일반 입력란에 채웁니다. 실제 양식 호환은 확인 중이며, 최종 제출은 하지 않습니다.",
-  "version": "0.2.36",
+  "version": "0.3.0",
   "icons": {
     "16": "icons/moa-16.png",
     "32": "icons/moa-32.png",
@@ -17,7 +17,8 @@
   ],
   "host_permissions": [
     "http://127.0.0.1:4317/*",
-    "http://127.0.0.1:4318/*"
+    "http://127.0.0.1:4318/*",
+    "https://9row.vercel.app/*"
   ],
   "background": {
     "service_worker": "background.js"
