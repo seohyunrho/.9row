@@ -17,6 +17,10 @@
 !/extension/
 !/tests/
 !/docs/
+!/api/
+!/supabase/
+!/vercel.json
+!/.vercelignore
 
 # Local data, credentials and generated files never belong in Git.
 node_modules/

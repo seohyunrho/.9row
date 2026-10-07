@@ -15,6 +15,7 @@ import './interactive-desks.css';
 function App() {
   const [workspace,setWorkspace]=useState(()=>localStorage.getItem('moa-workspace') || 'demo');
   const [data,setData]=useState(null);const [revision,setRevision]=useState(0);const [busy,setBusy]=useState(false);
+  const [runtime,setRuntime]=useState(null);
   const [saveFeedback,setSaveFeedback]=useState(null);
   const [handoff,setHandoff]=useState(null);
   const [page,setPage]=useState(()=>location.hash.slice(1).split('/')[0] || 'home');
@@ -36,7 +37,8 @@ function App() {
     if(lock.current)return false;const savingPage=pageRef.current;lock.current=true;setBusy(true);setError('');setSaveFeedback(null);
     try {const next=structuredClone(data);updater(next);const r=await fetch(`/api/state?workspace=${workspace}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision,data:next})});const b=await r.json();if(!r.ok)throw Error(b.error);setData(b.data);setRevision(b.revision);setSaveFeedback({id:crypto.randomUUID(),status:'success',workspace,page:savingPage});if(message)notify(message);return true;}catch(e){setError(e.message);setSaveFeedback({id:crypto.randomUUID(),status:'error',workspace,page:savingPage});return false;}finally{setBusy(false);lock.current=false;}
   };
-  const context={data,workspace,commit,busy,navigate,selectedJob,setSelectedJob,selectedEssayId,setSelectedEssayId,notify,switchWorkspace,setDirty,toast,saveFeedback,handoff,setHandoff};
+  useEffect(()=>{const c=new AbortController();fetch('/api/config',{signal:c.signal}).then(async r=>{if(!r.ok)throw Error();return r.json();}).then(setRuntime).catch(()=>{});return()=>c.abort();},[]);
+  const context={data,workspace,commit,busy,navigate,selectedJob,setSelectedJob,selectedEssayId,setSelectedEssayId,notify,switchWorkspace,setDirty,toast,saveFeedback,handoff,setHandoff,runtime};
   const summaryRef=useRef(null);summaryRef.current={workspace,page,experiences:data?.experiences.length||0,jobs:data?.jobs.length||0,essays:data?.essays.length||0,applications:data?.applications.length||0};
   useEffect(()=>{const registry=document.modelContext;if(!registry?.registerTool)return;const lifecycle=new AbortController();try{Promise.resolve(registry.registerTool({name:'read_office_summary',title:'모아 사무실 현황 확인',description:'현재 화면과 같은 사무실의 기록 개수와 AI 연결 상태를 읽습니다. 개인 자료 본문은 반환하지 않습니다.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},async execute(input){if(input&&Object.keys(input).length)throw Error('입력값이 필요 없는 조회입니다.');const response=await fetch('/api/config');if(!response.ok)throw Error('연결 상태를 읽지 못했습니다.');const config=await response.json();return {...summaryRef.current,aiConnected:config.aiConnected,aiConfigured:config.aiConfigured};}},{signal:lifecycle.signal})).catch(()=>{});}catch{}return()=>lifecycle.abort();},[]);
   const pages={review:ReviewPage,'experience-new':NewExperiencePage,experiences:ExperiencesPage,jobs:JobsPage,essays:EssaysPage,applications:ApplicationsPage,direction:DirectionPage,settings:SettingsPage};const Page=pages[page];

@@ -11,7 +11,7 @@ const hasLayout=value=>Array.isArray(value)&&value.length>0&&value.every(page=>A
 const imagePosting=job=>String(job.bodyFormat||'').startsWith('image')||(job.bodyFormat!=='text'&&Array.isArray(job.sourceImages)&&job.sourceImages.length>0);
 
 export function JobRolePanel({job,onBusyChange,disabled=false}){
-  const {commit,busy,workspace}=useOffice();
+  const {commit,busy,workspace,runtime}=useOffice();
   const [desiredRole,setDesiredRole]=useState(job.desiredRole||'');
   const [working,setWorking]=useState(false);
   const [status,setStatus]=useState('');
@@ -31,10 +31,13 @@ export function JobRolePanel({job,onBusyChange,disabled=false}){
   const inputChanged=!!result&&desiredRole.trim()!==savedRole;
   const sourceChanged=!!result&&!sameSource(result.sourceSnapshot,snapshotOf(job));
   const notes=Array.isArray(result?.notes)?result.notes.filter(note=>typeof note==='string'&&note.trim()):[];
+  const imageTextDeferred=(runtime?runtime.imageText==='deferred':job.textExtraction?.status==='deferred')
+    &&imagePosting(job)&&(!hasLayout(job.textLayout)||!job.body?.trim());
 
   const organize=async event=>{
     event.preventDefault();
     if(disabled||working||busy||requestRef.current)return;
+    if(imageTextDeferred){setError('온라인 이미지 글자 추출은 준비 중입니다. 원문 이미지와 기존에 저장된 JD를 확인해 주세요.');return;}
     const role=desiredRole.trim();
     if(!role){setError('정리할 관심 직무를 입력해 주세요.');setStatus('');return;}
     const original=jobRef.current;
@@ -93,10 +96,10 @@ export function JobRolePanel({job,onBusyChange,disabled=false}){
     <form onSubmit={organize} aria-busy={working}>
       <label htmlFor={`${id}-input`} className="cj-role-label">관심 직무</label>
       <div className="cj-role-input-row">
-        <input id={`${id}-input`} type="text" value={desiredRole} onChange={event=>{setDesiredRole(event.target.value);setError('');setStatus('');}} placeholder="예: 경영전략" maxLength={120} required disabled={disabled||working||busy} autoComplete="off" aria-describedby={`${id}-hint ${id}-save-hint`} />
-        <button className="cj-button cj-primary" type="submit" disabled={disabled||working||busy||!desiredRole.trim()}>{working?'JD 정리 중…':'이 직무로 JD 정리'}</button>
+        <input id={`${id}-input`} type="text" value={desiredRole} onChange={event=>{setDesiredRole(event.target.value);setError('');setStatus('');}} placeholder="예: 경영전략" maxLength={120} required disabled={disabled||working||busy||imageTextDeferred} autoComplete="off" aria-describedby={`${id}-hint ${id}-save-hint`} />
+        <button className="cj-button cj-primary" type="submit" disabled={disabled||working||busy||imageTextDeferred||!desiredRole.trim()}>{working?'JD 정리 중…':imageTextDeferred?'이미지 글자 추출 준비 중':'이 직무로 JD 정리'}</button>
       </div>
-      <p id={`${id}-save-hint`} className="cj-role-save-hint">정리하면 관심 직무와 결과가 이 공고에 함께 저장됩니다.</p>
+      <p id={`${id}-save-hint`} className="cj-role-save-hint">{imageTextDeferred?'이 공고는 이미지 글자 추출이 필요합니다. 온라인 추출은 준비 중이며, 기존에 저장된 JD는 아래에서 볼 수 있습니다.':'정리하면 관심 직무와 결과가 이 공고에 함께 저장됩니다.'}</p>
     </form>
     <p className="cj-role-status" role="status" aria-live="polite" aria-atomic="true">{status}</p>
     {error&&<p className="cj-role-error" role="alert">{error}</p>}
