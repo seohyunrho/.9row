@@ -52,3 +52,16 @@ test('cloud autofill preserves the cloud origin and deployment protection checks
   assert.equal((await fixture({ MOA_ACCESS_POLICY: '' }).request()).status, 503);
   assert.equal((await fixture({ VERCEL_ENV: 'preview' }).request()).status, 503);
 });
+
+test('Vercel dynamic action query works without allowing workspace or route overrides', async () => {
+  const { reads, request } = fixture();
+  assert.equal((await request('/api/autofill/status?action=status')).status, 200);
+  assert.deepEqual(reads, []);
+  assert.equal((await request('/api/autofill/profile?action=profile')).status, 200);
+  assert.deepEqual(reads, ['personal']);
+  for (const path of ['/api/autofill/status?action=profile', '/api/autofill/profile?action=profile&workspace=demo',
+    '/api/autofill/profile?action=profile&action=status', '/api/autofill/profile?url=https://evil.test']) {
+    assert.equal((await request(path)).status, 400);
+  }
+  assert.deepEqual(reads, ['personal']);
+});
