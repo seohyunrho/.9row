@@ -24,12 +24,12 @@ export function GeminiConnection(){
     setBusy(true);setError('');setMessage('');const c=new AbortController();controller.current=c;
     try{
       const s=await api(test?'/api/ai/test':'/api/ai/config',{method:test?'POST':'PUT',body:JSON.stringify(test?{}:{apiKey:key,model}),signal:c.signal});
-      setStatus(s);setModel(s.model);setKey('');setMessage(test?'Gemini 응답을 확인했어요. 자소서 초안 생성을 사용할 수 있습니다.':'키를 이 컴퓨터에 저장했어요. 연결 확인을 눌러 응답을 시험해 주세요.');
+      setStatus(s);setModel(s.model);setKey('');setMessage(test?'Gemini 응답을 확인했어요. 자소서 초안 생성을 사용할 수 있습니다.':'키를 이 컴퓨터에 저장했어요. 연결 확인을 눌러 응답을 확인해 주세요.');
     }catch(e){if(!c.signal.aborted){setError(e.message);if(test)setStatus(s=>s?{...s,verified:false}:s);}}finally{if(!c.signal.aborted)setBusy(false);}
   };
   const changed=!!key.trim()||model!==status?.model;
   const environmentManaged=status?.configuration==='environment';
-  return <section className="card gemini-connection"><div className="connection-head"><span className="connection-icon"><Plug size={23}/></span><span className="pill">{!status?'확인 중':status.verified?'응답 확인됨':status.configured?'키 등록됨 · 시험 전':'키 미등록'}</span></div>
+  return <section className="card gemini-connection"><div className="connection-head"><span className="connection-icon"><Plug size={23}/></span><span className="pill">{!status?'확인 중':status.verified?'응답 확인됨':status.configured?'키 등록됨':'키 미등록'}</span></div>
     <h2>Gemini 연결</h2><p>공고·선택한 경험·내 프롬프트로 자소서 초안을 만들고, 저장한 글의 검토 피드백을 받습니다. 공고 분석과 경험 정리의 AI 기능은 아직 연결 전입니다.</p>
     {environmentManaged?<div><Notice>온라인 사무실은 Vercel의 서버 설정에 등록된 Gemini 키를 사용합니다. 키와 모델을 변경할 때는 Vercel의 Environment Variables에서 수정한 뒤 다시 배포해 주세요.</Notice><p className="helper">사용할 모델: {status.model}</p><button type="button" className="button" disabled={busy||!status.configured} onClick={()=>perform(true)}>{busy?<LoaderCircle className="spin" size={15}/>:<Plug size={15}/>}연결 확인</button></div>:<form onSubmit={e=>{e.preventDefault();perform(false);}}>
       <Field label="Gemini API 키" hint="이 컴퓨터의 서버 설정 파일에 저장하며, 자료 백업에는 포함하지 않습니다. 저장한 키는 다시 표시하지 않습니다.">
@@ -38,7 +38,7 @@ export function GeminiConnection(){
       <Field label="사용할 모델"><input value={model} onChange={e=>setModel(e.target.value)} disabled={busy||!status} spellCheck={false}/></Field>
       <div className="connection-actions"><button className="button primary" disabled={busy||!status||(!key.trim()&&!status?.configured)}><Save size={15}/>키·모델 저장</button><button type="button" className="button" disabled={busy||!status?.configured||changed} onClick={()=>perform(true)}>{busy?<LoaderCircle className="spin" size={15}/>:<Plug size={15}/>}연결 확인</button></div>
     </form>}
-    <p className="helper">연결 확인은 개인 자료 대신 ‘OK’라는 시험 문장만 Google에 보냅니다. 모델·계정 설정에 따라 API 사용 요금이 발생할 수 있습니다.{!environmentManaged&&' 키 저장 자체는 외부로 전송하지 않습니다.'}</p>
+    <p className="helper">연결 확인은 개인 자료 대신 ‘OK’라는 짧은 문장만 Google에 보냅니다. 모델·계정 설정에 따라 API 사용 요금이 발생할 수 있습니다.{!environmentManaged&&' 키 저장 자체는 외부로 전송하지 않습니다.'}</p>
     <a className="text-button" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer">Google AI Studio에서 API 키 확인하기 ↗</a>
     {message&&<p role="status">{message}</p>}{error&&<p role="alert" className="gemini-error">{error}</p>}
   </section>;

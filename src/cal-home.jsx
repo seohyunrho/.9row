@@ -12,7 +12,7 @@ const dateKey=(year,month,day)=>`${year}-${String(month+1).padStart(2,'0')}-${St
 const deadlineLabel=days=>days===0?'오늘 마감':`D-${days}`;
 
 export function CalShell({page,children}){
-  const {data,workspace,navigate,switchWorkspace,busy,toast}=useOffice();
+  const {data,workspace,navigate,toast}=useOffice();
   const [mobileNav,setMobileNav]=useState(false);
   const homeDesign='notion-cal';
 
@@ -32,7 +32,7 @@ export function CalShell({page,children}){
         <button className="nh-icon nh-menu-toggle" aria-label={mobileNav?'메뉴 접기':'메뉴 펼치기'} aria-expanded={mobileNav} aria-controls="nh-navigation" onClick={()=>setMobileNav(!mobileNav)}>{mobileNav?<X size={20}/>:<Menu size={20}/>}</button>
         <div className={`nh-topnav-links ${mobileNav?'is-open':''}`} id="nh-navigation">
           <nav aria-label="메인 메뉴">{navigation.map(([id,label])=><button key={id} onClick={()=>open(id)} className={page===id?'is-current':''} aria-current={page===id?'page':undefined}>{label}</button>)}</nav>
-          <div className="nh-topnav-actions"><button className="nh-icon" onClick={()=>open('settings')} aria-label="내 정보 · 설정"><Settings size={18}/></button><button className="nh-workspace-switch" disabled={busy} onClick={()=>switchWorkspace(workspace==='demo'?'personal':'demo')} aria-label={workspace==='demo'?'내 공간으로 전환':'샘플 공간으로 전환'}>{workspace==='demo'?'샘플 공간':'개인 공간'}<ArrowRight size={13} aria-hidden="true"/></button></div>
+          <div className="nh-topnav-actions"><button className="nh-icon" onClick={()=>open('settings')} aria-label="내 정보 · 설정"><Settings size={18}/></button></div>
         </div>
       </div>
     </header>

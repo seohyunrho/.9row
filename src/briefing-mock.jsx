@@ -2,14 +2,14 @@ import React from 'react';
 import {ArrowUpRight,Pencil,MessageCircle} from 'lucide-react';
 import './briefing-mock.css';
 
-// Visual prototype only: local examples, no AI requests or persistent writes.
+// Summarize the owner's saved deadlines and essay progress without an AI request.
 export function BriefingMock({notices,onOpen,variant}){
   const focus=notices.find(item=>item.days<=7);
   const next=notices.find(item=>item.days<=7&&item.job.id!==focus?.job.id);
   const company=focus?.job.company;
   const notebook=variant==='notion-cal';
   if(notebook)return <section className="bm-briefing nc-briefing" aria-labelledby="bm-title">
-    <div className="bm-heading"><div className="bm-identity"><span className="bm-mark" aria-hidden="true"><MessageCircle size={19}/></span><h2 id="bm-title">오늘의 준비 브리핑</h2></div><span className="bm-preview">미리보기</span></div>
+    <div className="bm-heading"><div className="bm-identity"><span className="bm-mark" aria-hidden="true"><MessageCircle size={19}/></span><h2 id="bm-title">오늘의 준비 브리핑</h2></div></div>
     <div className="bm-summary nc-briefing-note">
       <p className="nc-briefing-lead">{focus?<><strong>{company}</strong> {focus.days===0?<strong>오늘 마감</strong>:<>마감까지 <strong>{focus.days}일</strong></>}{focus.days===0?'입니다.':' 남았습니다.'}</>:'7일 이내에 마감되는 미지원 공고가 없습니다.'}</p>
       <p className="nc-briefing-detail">{focus?(focus.written===0?'아직 저장된 자소서가 없습니다. 오늘은 초안 작성을 우선하세요.':'저장한 자소서의 누락 문항과 제출 조건을 확인하세요.'):'관심 공고에서 지원할 공고와 일정을 확인하세요.'}</p>
@@ -20,7 +20,7 @@ export function BriefingMock({notices,onOpen,variant}){
     </div>
   </section>;
   return <section className="bm-briefing" aria-labelledby="bm-title">
-    <div className="bm-heading"><div className="bm-identity"><span className="bm-mark" aria-hidden="true">{notebook?<MessageCircle size={19}/>:"m."}</span><h2 id="bm-title">오늘의 준비 브리핑</h2></div><span className="bm-preview">미리보기</span></div>
+    <div className="bm-heading"><div className="bm-identity"><span className="bm-mark" aria-hidden="true">{notebook?<MessageCircle size={19}/>:"m."}</span><h2 id="bm-title">오늘의 준비 브리핑</h2></div></div>
     <div className="bm-summary">
       <p className="bm-kicker">{notebook?'오늘의 우선순위':'먼저 할 일'}</p>
       <h3>{focus?<><span className="bm-focus-company">{company}</span><br className="bm-mobile-break"/>{focus.written===0?(notebook?' 자소서 초안 작성':' 초안부터 시작해 볼까요?'):(notebook?' 자소서 최종 점검':' 자소서를 점검해 볼까요?')}</>:(notebook?'관심 공고 등록':'관심 있는 공고부터 모아볼까요?')}</h3>
