@@ -1,0 +1,134 @@
+/* Shared game-window theme; dialog behavior and saved data remain unchanged. */
+.office-app dialog {
+  --pixel-edge:#5d5138;
+  --pixel-line:#c8b58a;
+  --pixel-paper:#fff7df;
+  --pixel-panel:#f2e8ca;
+  --pixel-green:#52663f;
+  --ink:#3e442d;
+  --line:#c8b58a;
+  --green:#52663f;
+  font-family:OfficePixel,monospace;
+  font-size:14px;
+  line-height:1.8;
+  color:var(--ink);
+  border:3px solid var(--pixel-edge);
+  border-radius:0;
+  background:var(--pixel-paper);
+  box-shadow:4px 0 0 #e8d9af,-4px 0 0 #e8d9af,0 4px 0 #e8d9af,0 -4px 0 #e8d9af,0 8px 0 #5d5138,8px 0 0 #5d5138,-8px 0 0 #5d5138,0 -8px 0 #5d5138,12px 14px 0 #30291938;
+}
+.office-app dialog:is(.room-workspace,.modal,.colleague-conversation) *,
+.office-app dialog:is(.room-workspace,.modal,.colleague-conversation) *::before,
+.office-app dialog:is(.room-workspace,.modal,.colleague-conversation) *::after {border-radius:0}
+.office-app dialog :is(button,input,textarea,select,option) {font-family:inherit}
+.office-app dialog :is(h1,h2,h3,h4,strong,b) {font-weight:400;letter-spacing:0}
+.office-app dialog::backdrop {background:#252b2247;backdrop-filter:none}
+.office-app dialog :is(button,input,textarea,select,summary):focus-visible {outline:3px solid #56753f;outline-offset:3px}
+.office-app dialog button {min-height:40px}
+.office-app dialog button:disabled {opacity:.55}
+.office-app dialog :is(input,textarea,select) {
+  background:#fffdf0;color:#3b432d;border:2px solid #ad9b70;
+  box-shadow:inset 2px 2px 0 #e7dcc0;font-size:15px;line-height:1.9;
+}
+.office-app dialog :is(input,textarea)::placeholder {color:#7c8068;opacity:1}
+.office-app dialog input[type=checkbox] {width:18px;height:18px;min-height:18px;box-shadow:none;accent-color:var(--pixel-green)}
+.office-app dialog input[aria-invalid=true] {border-color:#a14731}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button) {
+  border:2px solid #ad9b70;background:#f2e5bf;color:#464c32;
+  box-shadow:inset 2px 2px 0 #fffbed,inset -2px -2px 0 #d9c28e,0 2px 0 #8c7852;
+  font-size:13px;min-height:44px;
+}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button):hover:not(:disabled) {background:#e0e6bc;border-color:#74835b}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button):active:not(:disabled) {box-shadow:inset 2px 2px 0 #bca878}
+.office-app dialog :is(.button.primary,.conversation-primary) {background:#52663f;color:#fffbea;border-color:#36472b;box-shadow:inset 2px 2px 0 #7c915e,inset -2px -2px 0 #3d4f2e,0 2px 0 #35442a}
+.office-app dialog :is(.button.primary,.conversation-primary):hover:not(:disabled) {background:#607746;color:#fffbea}
+.office-app dialog .button.danger {background:#f5dfcd;color:#873c28;border-color:#b07c5c}
+.office-app dialog :is(.tabs>button.selected,.profile-categories>button.selected,.version-list>button.selected) {background:#dbe4b8;border-color:#63794a;color:#35462b;box-shadow:inset 2px 2px 0 #afc18a,0 2px 0 #63794a}
+.office-app dialog :is(.icon-button,.workspace-titlebar>div>button,.conversation-top>button) {border:2px solid #9c8d64;background:#f1e4be;color:#4f5138;box-shadow:inset 2px 2px 0 #fff7dc;min-width:36px;min-height:36px}
+.office-app dialog :is(.text-button,.room-back,.conversation-back) {font-size:13px;color:#405b31}
+
+/* Shared title strips, dialogue text, and speaker portraits. */
+.office-app .workspace-titlebar,.office-app .conversation-top {
+  background:#dedbb2;border-bottom:3px solid #96855c;color:#3d4930;font-size:13px;
+}
+.office-app .workspace-titlebar {height:64px}
+.office-app .room-work-content {height:calc(100% - 64px);background:#f5eed5}
+.office-app .conversation-top {padding:10px 17px;min-height:55px}
+.office-app .conversation-body {background:#fff7df;padding:24px;gap:25px}
+.office-app .colleague-speech {font-size:17px;line-height:2;color:#3b432e}
+.office-app .speaker-portrait .portrait {outline:3px solid #a49161;outline-offset:5px;margin:7px}
+.office-app .speaker-portrait strong {font-size:19px;font-weight:400;margin-top:15px;color:#435234}
+.office-app .speaker-portrait small {font-size:12px;color:#646a4d}
+.office-app .conversation-options {gap:10px}
+.office-app .conversation-options>button {padding:12px 16px;line-height:1.8;text-align:left}
+.office-app .conversation-options>button strong {font-size:14px}
+.office-app .conversation-options>button small {font-size:12px;color:#60684c}
+.office-app .conversation-disclosure {font-size:12px;color:#6c6d51;line-height:1.8;border-top:1px dashed #bcab7a;padding-top:12px}
+.office-app .my-choice {font-size:12px;color:#5c6f43}
+.office-app .conversation-dot {background:#65814c;box-shadow:2px 2px 0 #b4c293}
+.office-app .modal {padding:24px;max-height:calc(100dvh - 40px)}
+.office-app .modal-head {background:#dedbb2;margin:-24px -24px 24px;padding:14px 20px;border-bottom:3px solid #96855c;gap:16px}
+.office-app .modal-head h2 {font-size:20px;line-height:1.6;color:#3c482f}
+.office-app dialog .portrait {image-rendering:pixelated}
+
+/* Contents of every work page: notes, cards, forms, records and writing. */
+.office-app dialog :is(.card,.detail-card,.record-list,.writing-main,.writing-side,.table-wrap,.profile-record,.stat-row>div,.essay-job-bar,.direction-scope) {
+  background:#fff9e7;border:2px solid #c0af83;box-shadow:2px 2px 0 #dfd0a4;
+}
+.office-app dialog :is(.notice,.staff-intro,.direction-note,.profile-save) {background:#e7e9c9;border:2px solid #b2bd8d;color:#536142}
+.office-app dialog :is(.source-text,.version-preview,.profile-note,.ai-status,.profile-undo) {background:#f3eacb;border:1px solid #c4b78e;color:#616346}
+.office-app dialog :is(.page-heading h1,.detail-heading h2) {font-size:24px;line-height:1.7;letter-spacing:0}
+.office-app dialog :is(.card h3,.profile-intro h2,.profile-section-title h3,.settings-card h2,.prompt-layout h2,.connection-grid h2) {font-size:18px;line-height:1.8}
+.office-app dialog :is(.page-heading p,.card p,.staff-intro p,.muted-copy,.profile-intro p,.profile-section-heading p,.connection-grid p) {font-size:14px;color:#626a4d;line-height:1.9}
+.office-app dialog :is(.helper,.meta,.side-footnote,.profile-field small,.field small,.small-empty,.plain-list,.record-item small,.experience-option small,.profile-record-caption,.profile-save-state,.editor-bottom,.question-heading .meta) {font-size:12px;color:#6b7257;line-height:1.9}
+.office-app dialog :is(.field>span,.profile-field label,.check-label,.review-checklist,.experience-option strong,.writing-side h3) {font-size:13px;color:#505c3e;line-height:1.8}
+.office-app dialog :is(.eyebrow,.category-tag,.pill,.fact-status,.record-status,.status,.count,.profile-required,.profile-record-number,.profile-categories small) {font-size:11px;color:#596345;letter-spacing:0}
+.office-app dialog :is(.category-tag,.pill,.record-status,.status,.count,.profile-record-number,.profile-categories small,.question-tabs span,.step-number) {background:#e5e4c2;border:1px solid #bcb48b}
+.office-app dialog :is(.search-box,.experience-option,.record-item,.profile-empty) {background:#fff9e7;border:2px solid #c4b58d}
+.office-app dialog .search-box input {border:0;box-shadow:none;background:transparent;font-size:14px}
+.office-app dialog .search-box:focus-within {outline:3px solid #56753f;outline-offset:2px}
+.office-app dialog :is(.record-item.selected,.experience-option.selected) {background:#e7ebcf;border-color:#8b9c69}
+.office-app dialog :is(.profile-record summary,.writing-steps,.editor-toolbar,th) {background:#eae4c6;border-color:#c6b78b;color:#566244}
+.office-app dialog :is(.profile-intro-icon,.connection-icon,.empty-icon,.company-mark) {background:#dfe5bd;border:2px solid #afbc87;color:#52643b}
+.office-app dialog .question-tabs {border-bottom:2px solid #bbaa7d;gap:8px;padding-bottom:2px}
+.office-app dialog .question-tabs button {font-size:13px;padding:11px 13px;color:#697254;border:2px solid transparent}
+.office-app dialog .question-tabs button.active {background:#e2e8c3;border:2px solid #8b9d68;color:#40542f}
+.office-app dialog .question-input {font-size:17px;padding:10px;line-height:2}
+.office-app dialog .essay-editor {font-size:16px;line-height:2.1;background:#fffdf0;padding:24px;border:0;box-shadow:none;letter-spacing:0}
+.office-app dialog .essay-editor:focus-visible {outline:3px solid #67834b!important;outline-offset:-4px}
+.office-app dialog :is(.source-text,.version-preview,.small-source,.requirement-list) {font-size:14px;line-height:2;color:#576145}
+.office-app dialog .outline-area textarea {font-size:15px;line-height:2}
+.office-app dialog .writing-steps {font-size:12px}
+.office-app dialog .writing-steps b {border:1px solid #b4b789}
+.office-app dialog th {font-size:12px}
+.office-app dialog td {font-size:13px;color:#5f6a4e;border-color:#d7cca9}
+.office-app dialog td small {font-size:12px;color:#71795d}
+.office-app dialog :is(.stat-row strong,.requirement-row>span) {color:#52663f;font-weight:400}
+.office-app dialog .form-footer {border-top:2px solid #d3c59b;padding-top:20px}
+.office-app dialog :is(.profile-error,.over-limit) {color:#9b402b}
+.office-app dialog :is(.workspace-feedback,.error-banner) {border:2px solid #5b563a;font-size:13px}
+.office-app .toast {font-family:OfficePixel,monospace;border:2px solid #3a4a2b;border-radius:0;box-shadow:3px 3px 0 #28351f;font-size:13px}
+.office-app .room-companion {font-family:OfficePixel,monospace;border-radius:0;border:3px solid #8b805b;background:#fff4d7;box-shadow:4px 4px 0 #52492e66}
+.office-app .room-companion :is(strong,p,small) {font-weight:400}
+.office-app dialog {scrollbar-color:#9b9f70 #eee3c2;scrollbar-width:thin}
+.office-app dialog * {scrollbar-color:#9b9f70 #eee3c2;scrollbar-width:thin}
+@media(max-width:720px){
+  .office-app .room-workspace,.office-app .room-workspace.expanded {inset:14px;width:calc(100vw - 28px);height:calc(100dvh - 28px);border-radius:0}
+  .office-app .workspace-titlebar {height:58px;padding:0 12px}
+  .office-app .room-work-content {height:calc(100% - 58px);padding:20px 14px}
+  .office-app .colleague-conversation {width:calc(100vw - 32px);bottom:20px;max-height:calc(100dvh - 40px);border-radius:0}
+  .office-app .conversation-body {padding:18px 14px;gap:17px}
+  .office-app .colleague-speech {font-size:15px}
+  .office-app .speaker-portrait strong {font-size:16px}
+  .office-app .speaker-portrait small {font-size:10px}
+  .office-app .conversation-disclosure {font-size:11px}
+  .office-app .conversation-options>button {padding:10px;font-size:13px}
+  .office-app .modal {width:calc(100vw - 32px);padding:18px}
+  .office-app .modal-head {margin:-18px -18px 20px;padding:12px 14px}
+  .office-app .modal-head h2 {font-size:18px}
+  .office-app dialog :is(.page-heading h1,.detail-heading h2) {font-size:21px}
+  .office-app dialog :is(.card,.detail-card,.writing-side) {padding:17px}
+  .office-app dialog .tabs>button {padding:9px;font-size:12px}
+  .office-app dialog .writing-steps {flex-wrap:wrap;gap:10px}
+  .office-app dialog .essay-editor {padding:18px;font-size:16px}
+}

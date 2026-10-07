@@ -1,0 +1,11 @@
+/* Work pages fill the viewport; conversations keep their compact message layout. */
+.office-app dialog.room-workspace.full-workspace{
+  position:fixed;inset:0;margin:0;width:100%;height:100dvh;
+  max-width:none;max-height:none;padding:0;border:0;border-radius:0;box-shadow:none;
+  overflow:hidden;animation:none;
+}
+.office-app dialog.room-workspace.full-workspace[open]{display:flex;flex-direction:column}
+.office-app .full-workspace>.workspace-titlebar,
+.office-app .full-workspace>.work-companion-strip{flex-shrink:0}
+.office-app .full-workspace>.room-work-content{flex:1;min-height:0;height:auto;overflow:auto}
+.office-app .full-workspace .workspace-titlebar>div>button{width:44px;height:44px}

@@ -1,0 +1,182 @@
+/* v19: Cool blue-gray document surfaces + quiet Cal.com controls.
+   Scoped to the home variant; v15 source remains preserved in versions. */
+.mh-title-dot{display:none}
+.mh-design-picker{display:flex;align-items:center;gap:10px;flex-shrink:0;font-size:11px;color:var(--nc-muted,#64748b)}
+.mh-design-picker>div{display:flex;gap:2px;padding:3px;border:1px solid var(--nc-line,#e2e8f0);background:#f7f9fc;border-radius:7px}
+.mh-design-picker button{min-height:32px;padding:5px 11px;font-size:11px;border-radius:4px;color:var(--nc-muted,#64748b)}
+.mh-design-picker button[aria-pressed=true]{background:#fff;color:var(--nc-ink,#25354b);box-shadow:0 1px 3px #00000012;font-weight:600}
+.notion-cal-home{--nc-ink:#25354b;--nc-muted:#64748b;--nc-line:#e2e8f0;--nc-soft:#f4f7fb;background:white;color:var(--nc-ink)}
+.notion-cal-home .nh-topnav{background:#fff;border-bottom:1px solid var(--nc-line)}
+.notion-cal-home .nh-topnav-inner{min-height:68px;gap:40px;max-width:1240px}
+.notion-cal-home .nh-topnav-brand strong{font-size:25px;color:var(--nc-ink);letter-spacing:-1.5px}
+.notion-cal-home .nh-topnav-links nav{gap:3px}
+.notion-cal-home .nh-topnav-links nav button{font-size:13px;padding:7px 11px;min-height:36px;border-radius:5px;color:var(--nc-muted)}
+.notion-cal-home .nh-topnav-links nav button.is-current{background:#edf2f8;color:var(--nc-ink);font-weight:600}
+.notion-cal-home .nh-topnav-links nav button:hover{background:var(--nc-soft);color:var(--nc-ink)}
+.notion-cal-home .nh-workspace-switch{border-radius:6px;border-color:var(--nc-line);background:#f7f9fc;font-size:11px;color:#526780}
+.notion-cal-home .nh-main{max-width:1160px;padding:52px 40px 76px}
+.notion-cal-home .nh-intro{padding-bottom:28px;border-bottom:1px solid var(--nc-line);margin-bottom:30px}
+.notion-cal-home .nh-greeting-row{align-items:center;gap:24px}
+.notion-cal-home .nh-date{font-size:12px;color:var(--nc-muted);letter-spacing:0;margin-bottom:13px}
+.notion-cal-home .nh-greeting-row h1{font-size:36px;font-weight:700;line-height:1.3;letter-spacing:-1.4px;color:var(--nc-ink)}
+.notion-cal-home .nh-description{font-size:13px;color:var(--nc-muted);margin-top:12px;line-height:1.8}
+.notion-cal-home .nh-description strong{color:var(--nc-ink);font-weight:500;border-bottom:1px solid #c5d1e2;padding-bottom:1px}
+.notion-cal-home .nh-home-columns{grid-template-columns:minmax(0,1fr) 316px;gap:46px;align-items:start}
+.notion-cal-home .nh-primary-column{gap:34px}
+.notion-cal-home .nh-secondary-column{gap:14px}
+.notion-cal-home .nh-section-heading{margin-bottom:16px}
+.notion-cal-home .nh-section-heading h2{font-size:16px;letter-spacing:-.3px;font-weight:650;color:var(--nc-ink)}
+.notion-cal-home .nh-text-button{font-size:12px;color:var(--nc-muted)}
+.notion-cal-home .nh-text-button:hover{color:var(--nc-ink)}
+/* Briefing reads like a note in a document, with one dark action. */
+.notion-cal-home .bm-briefing{border:0;background:transparent;border-radius:0;overflow:visible}
+.notion-cal-home .bm-heading{padding:0 0 19px;gap:12px}
+.notion-cal-home .bm-identity{gap:8px}
+.notion-cal-home .bm-mark{background:transparent;color:var(--nc-muted);width:22px;height:24px;border-radius:0}
+.notion-cal-home .bm-heading h2{font-size:16px;font-weight:650;letter-spacing:-.3px;color:var(--nc-ink)}
+.notion-cal-home .bm-preview{font-size:10px;border:1px solid var(--nc-line);background:#f7f9fc;color:var(--nc-muted);border-radius:4px;padding:2px 6px}
+.notion-cal-home .bm-summary{position:relative;background:var(--nc-soft);border-radius:5px 16px 16px 16px;padding:24px 25px 19px;border:1px solid var(--nc-line)}
+.notion-cal-home .bm-kicker{font-size:11px;color:var(--nc-muted);margin-bottom:10px;font-weight:500}
+.notion-cal-home .bm-summary h3{font-size:21px;font-weight:500;line-height:1.5;letter-spacing:-.65px;color:var(--nc-ink)}
+.notion-cal-home .bm-focus-company{font-weight:650}
+.notion-cal-home .bm-mobile-break{display:none}
+.notion-cal-home .bm-reason{font-size:13px;color:var(--nc-muted);line-height:1.9;margin-top:12px}
+.notion-cal-home .bm-reason strong{color:var(--nc-ink);font-weight:500}
+.notion-cal-home .bm-actions{margin-top:20px;gap:8px}
+.notion-cal-home .bm-action{min-height:36px;border-radius:6px;border-color:#d6dfec;background:#fff;color:#4b5e77;font-size:12px;padding:7px 11px}
+.notion-cal-home .bm-action:hover{background:#edf2f8;border-color:#c5d1e2}
+.notion-cal-home .bm-action:last-child{background:var(--nc-ink);color:#fff;border-color:var(--nc-ink)}
+.notion-cal-home .bm-action:last-child:hover{background:#34455d;border-color:#34455d}
+.notion-cal-home .bm-next{margin-top:22px;padding-top:14px;border-color:var(--nc-line);color:var(--nc-muted);font-size:11px}
+.notion-cal-home .bm-next strong{font-weight:500;color:#526780}
+.notion-cal-home .bm-next-date{background:var(--nc-line);color:#526780;border-radius:4px;padding:2px 5px;font-size:10px}
+/* Plain lists and subdued database-like labels. */
+.notion-cal-home .nh-todos .nh-section-heading{margin-bottom:10px}
+.notion-cal-home .nh-completion{font-size:11px;color:var(--nc-muted)}
+.notion-cal-home .nh-todo-toolbar{padding-bottom:8px;border-bottom:1px solid var(--nc-line);margin-bottom:0}
+.notion-cal-home .nh-todo-toolbar>div{padding:0;background:none;border-radius:0;gap:3px}
+.notion-cal-home .nh-todo-toolbar button{min-height:30px;border-radius:4px;font-size:11px;color:var(--nc-muted);padding:4px 10px}
+.notion-cal-home .nh-todo-toolbar button[aria-pressed=true]{background:#edf2f8;border-color:transparent;color:var(--nc-ink);box-shadow:none}
+.notion-cal-home .nh-todo-meter{width:54px;height:3px;background:#edf2f8}
+.notion-cal-home .nh-todo-meter>span{background:#8492a6}
+.notion-cal-home .nh-todo-list{margin-bottom:10px}
+.notion-cal-home .nh-todo-list li{min-height:47px;border-color:#edf1f6}
+.notion-cal-home .nh-todo-list label{font-size:13px;color:#4b5e77;padding:11px 0}
+.notion-cal-home .nh-todo-list input[type=checkbox]{accent-color:#4b5e77;width:15px;height:15px;min-height:15px}
+.notion-cal-home .nh-todo-list li.is-done label span{color:#8492a6}
+.notion-cal-home .nh-todo-list .nh-icon{color:#8492a6;width:28px;min-width:28px}
+.notion-cal-home .nh-todo-add{border:1px solid var(--nc-line);border-radius:6px;min-height:40px;background:#f7f9fc;padding:3px 5px 3px 10px;color:#8492a6}
+.notion-cal-home .nh-todo-add input{font-size:13px;color:var(--nc-ink)}
+.notion-cal-home .nh-todo-add input::placeholder{color:#738299}
+.notion-cal-home .nh-todo-add button{height:28px;width:28px;min-width:28px;border-radius:4px;background:#e5ecf5;color:#526780}
+.notion-cal-home .nh-todo-footer,.notion-cal-home .nh-todo-footer small{font-size:10px;color:#738299}
+.notion-cal-home .nh-continue{padding-top:24px;border-color:var(--nc-line)}
+.notion-cal-home .nh-document-row{border-color:var(--nc-line);padding:17px 0;gap:10px}
+.notion-cal-home .nh-document-icon{width:28px;height:34px;border:0;border-radius:0;background:transparent;color:var(--nc-muted)}
+.notion-cal-home .nh-document-row strong{font-size:13px;font-weight:600;color:var(--nc-ink)}
+.notion-cal-home .nh-document-row strong small{font-size:11px;color:var(--nc-muted)}
+.notion-cal-home .nh-document-row>span:nth-child(2)>span{font-size:12px;color:var(--nc-muted)}
+.notion-cal-home .nh-draft-state{font-size:10px;color:var(--nc-muted);background:#edf2f8;border-radius:4px;padding:2px 6px}
+/* Calendar keeps Cal's bordered container and exact date grid. */
+.notion-cal-home .nh-schedule{padding:22px;border-radius:10px;border:1px solid var(--nc-line);background:#fff}
+.notion-cal-home .nh-schedule .nh-section-heading{margin-bottom:4px}
+.notion-cal-home .nh-schedule .nh-section-description{font-size:11px;color:#738299;margin-bottom:20px}
+.notion-cal-home .nh-calendar-toggle{font-size:14px;color:var(--nc-ink);font-weight:600}
+.notion-cal-home .nh-calendar-toggle>span:last-child{font-size:10px;color:var(--nc-muted)}
+.notion-cal-home .nh-calendar-controls .nh-text-button{font-size:11px}
+.notion-cal-home .nh-calendar-grid{gap:3px}
+.notion-cal-home .nh-weekday{font-size:11px;color:#8492a6}
+.notion-cal-home .nh-calendar-grid>button{font-size:11px;min-height:32px;border-radius:5px;color:#4b5e77}
+.notion-cal-home .nh-calendar-grid>button.is-today{background:#edf2f8;box-shadow:none;color:var(--nc-ink)}
+.notion-cal-home .nh-calendar-grid>button[aria-pressed=true]{background:var(--nc-ink);color:#fff;box-shadow:none}
+.notion-cal-home .nh-calendar-grid i{height:3px;width:3px;left:calc(50% - 1.5px)}
+.notion-cal-home .nh-upcoming-list{border-color:var(--nc-line)}
+.notion-cal-home .nh-upcoming-list>button{padding:16px 0;border-color:#edf2f8;gap:10px}
+.notion-cal-home .nh-event-date{min-width:31px}
+.notion-cal-home .nh-event-date small{font-size:10px;color:#738299}
+.notion-cal-home .nh-event-date b{font-size:20px;color:#4b5e77}
+.notion-cal-home .nh-upcoming-list strong{font-size:12px;color:var(--nc-ink);font-weight:600}
+.notion-cal-home .nh-upcoming-list>button>span:nth-child(2)>small{font-size:11px;color:var(--nc-muted)}
+.notion-cal-home .ch-dday{border-radius:4px;border:0;background:#edf2f8;color:var(--nc-muted);font-size:10px;line-height:1.6;padding:2px 5px}
+.notion-cal-home .ch-dday.is-urgent{background:#e5edf8;color:#3b5c94}
+.notion-cal-home .nh-schedule-all{font-size:11px;color:var(--nc-muted);margin-top:7px}
+.notion-cal-home .ch-utility-links{gap:16px}
+.notion-cal-home .ch-utility-links button{font-size:11px;color:var(--nc-muted)}
+@media(max-width:1100px){
+  .notion-cal-home .nh-topnav-inner{gap:24px}
+  .notion-cal-home .nh-topnav-links nav button{padding:7px 8px}
+  .notion-cal-home .nh-home-columns{grid-template-columns:minmax(0,1fr) 300px;gap:30px}
+  .notion-cal-home .nh-main{padding-left:28px;padding-right:28px}
+}
+@media(max-width:940px){
+  .notion-cal-home .nh-topnav-inner{gap:0;min-height:64px}
+  .notion-cal-home .nh-topnav-links nav button{min-height:44px}
+  .mh-design-picker{flex-direction:column;align-items:flex-end;gap:6px}
+}
+@media(max-width:760px){
+  .notion-cal-home .nh-main{padding:32px 24px 48px}
+  .notion-cal-home .nh-home-columns{grid-template-columns:1fr;gap:34px}
+  .notion-cal-home .nh-secondary-column{max-width:none;width:100%}
+  .notion-cal-home .nh-greeting-row h1{font-size:31px}
+  .notion-cal-home .nh-greeting-row{align-items:flex-start;gap:16px}
+  .notion-cal-home .nh-intro{padding-bottom:24px;margin-bottom:26px}
+  .notion-cal-home .nh-calendar-grid>button{min-height:40px}
+  .notion-cal-home .nh-schedule{padding:24px}
+}
+@media(max-width:480px){
+  .notion-cal-home .nh-main{padding:28px 20px 40px}
+  .notion-cal-home .nh-greeting-row{flex-wrap:wrap}
+  .mh-design-picker{flex-direction:row;align-items:center;gap:9px}
+  .notion-cal-home .nh-greeting-row h1{font-size:29px}
+  .notion-cal-home .nh-description{max-width:none}
+  .notion-cal-home .bm-summary{padding:20px 18px 17px}
+  .notion-cal-home .bm-summary h3{font-size:20px}
+  .notion-cal-home .bm-reason{font-size:13px}
+  .notion-cal-home .nh-todo-add input{font-size:16px}
+}
+@media(pointer:coarse){
+  .mh-design-picker button,.notion-cal-home .bm-action,.notion-cal-home .nh-text-button{min-height:44px}
+  .notion-cal-home .nh-todo-toolbar button{min-height:40px}
+  .notion-cal-home .nh-todo-list .nh-icon{min-height:44px;min-width:34px}
+}
+
+/* The tail sits below the briefing speaker icon. */
+.notion-cal-home .bm-summary::before{content:"";position:absolute;top:-7px;left:18px;width:12px;height:12px;background:var(--nc-soft);border-top:1px solid var(--nc-line);border-left:1px solid var(--nc-line);transform:rotate(45deg)}
+
+/* A softened single blue accent; retain the current page geometry. */
+.notion-cal-home{--nc-blue:#4b6fae;--nc-blue-active:#3b5c94;--nc-blue-soft:#edf2f9}
+.notion-cal-home .nh-topnav-links nav button.is-current{background:var(--nc-blue-soft);color:var(--nc-blue)}
+.notion-cal-home .nh-calendar-grid>button[aria-pressed=true]{background:var(--nc-blue);color:#fff}
+.notion-cal-home .nh-calendar-grid>button.is-today:not([aria-pressed=true]){background:var(--nc-blue-soft);color:#3b5c94}
+.notion-cal-home .nh-todo-toolbar button[aria-pressed=true]{background:var(--nc-blue-soft);color:#3b5c94}
+.notion-cal-home .nh-todo-list input[type=checkbox]{accent-color:var(--nc-blue)}
+.notion-cal-home .nh-todo-meter>span{background:var(--nc-blue)}
+.notion-cal-home .nh-todo-add button:not(:disabled){background:var(--nc-blue);color:#fff}
+.notion-cal-home .bm-mark{color:var(--nc-blue)}
+.notion-cal-home .nc-briefing-note{background:#fff;border-color:#e5e7eb;padding:20px 23px}
+.notion-cal-home .nc-briefing-note::before{background:#fff;border-color:#e5e7eb}
+.notion-cal-home .nc-briefing-lead{font-size:16px;line-height:1.75;letter-spacing:-.3px;color:var(--nc-ink);word-break:keep-all;overflow-wrap:anywhere}
+.notion-cal-home .nc-briefing-lead strong{font-weight:600}
+.notion-cal-home .nc-briefing-detail{font-size:13px;line-height:1.85;color:var(--nc-muted);margin-top:5px;word-break:keep-all;overflow-wrap:anywhere}
+.notion-cal-home .nc-briefing-actions{margin-top:13px;gap:16px;padding-left:1px}
+.notion-cal-home .nc-briefing-actions .nc-primary-action{background:var(--nc-blue);border-color:var(--nc-blue);color:#fff;min-height:38px;padding:8px 13px}
+.notion-cal-home .nc-briefing-actions .nc-primary-action:hover{background:var(--nc-blue-active);border-color:var(--nc-blue-active)}
+.notion-cal-home .nc-posting-link{display:inline-flex;align-items:center;gap:4px;min-height:38px;font-size:12px;color:var(--nc-muted)}
+.notion-cal-home .nc-posting-link:hover{color:#3b5c94;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:480px){
+  .notion-cal-home .nc-briefing-note{padding:18px}
+  .notion-cal-home .nc-briefing-lead{font-size:15px}
+}
+@media(pointer:coarse){
+  .notion-cal-home .nc-briefing-actions .nc-primary-action,.notion-cal-home .nc-posting-link{min-height:44px}
+}
+
+/* Keep inherited controls and secondary surfaces in the same cool palette. */
+.notion-cal-home{--cal-ink:var(--nc-ink);--cal-body:#4b5e77;--cal-muted:var(--nc-muted);--cal-line:var(--nc-line);--cal-soft:var(--nc-soft)}
+.notion-cal-home .mh-design-picker{color:var(--nc-muted)}
+.notion-cal-home .nc-briefing-note,.notion-cal-home .nc-briefing-note::before{background:#f7f9fc;border-color:var(--nc-line)}
+.notion-cal-home .nh-icon:hover,.notion-cal-home .nh-calendar-grid>button:not([aria-pressed=true]):hover{background:var(--nc-blue-soft);color:var(--nc-blue-active)}
+.notion-cal-home .ch-dday{background:var(--nc-blue-soft);color:var(--nc-blue-active)}
+.notion-cal-home .ch-dday.is-urgent{background:#dce6f5;color:#334f7d;font-weight:600}
+.notion-cal-home :is(button,a,input):focus-visible{outline-color:var(--nc-blue)}
+.notion-cal-home .nh-todo-edit input{color:var(--nc-ink);border-color:var(--nc-blue)}

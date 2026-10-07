@@ -1,0 +1,111 @@
+/* Initial's existing workflows, presented in the approved muted blue design.
+   No demo briefing, todo storage, filters, or other design-copy behavior. */
+.office-app.cal-app .initial-blue-world{height:auto;min-height:100dvh;overflow:visible;isolation:auto;background:#fff;color:#25354b;font-family:var(--cal-font)}
+.initial-blue-world button{font-family:inherit}
+.initial-blue-world .initial-home-content[hidden]{display:none}
+.initial-home-columns{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:46px;align-items:start}
+.initial-work-list{min-width:0}
+.initial-work-row{width:100%;display:flex;align-items:center;gap:16px;padding:22px 4px;border-bottom:1px solid #e2e8f0;text-align:left;color:#64748b}
+.initial-work-row:hover{background:#f7f9fc}
+.initial-work-row>span:nth-child(2){flex:1;min-width:0}
+.initial-work-row strong{display:block;font-size:15px;color:#25354b;font-weight:600}
+.initial-work-row small{display:block;font-size:12px;line-height:1.8;color:#64748b;margin-top:6px}
+.initial-work-icon{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border-radius:8px;background:#edf2f9;color:#597bb0}
+.initial-profile-link{display:flex;align-items:center;gap:8px;margin-top:24px;color:#64748b;min-height:40px;font-size:12px}
+.initial-profile-link:hover{color:#3b5c94}
+.office-app.cal-app .initial-blue-world .room-memo.deadline-board{display:block;position:static;width:100%;max-width:none;padding:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;box-shadow:none;filter:none;transform:none;z-index:auto;isolation:auto;color:#25354b}
+.office-app.cal-app .initial-blue-world .room-memo::before,.office-app.cal-app .initial-blue-world .room-memo::after,.initial-blue-world .memo-pin{display:none}
+.office-app.cal-app .initial-blue-world .deadline-heading{color:#25354b;gap:8px}
+.office-app.cal-app .initial-blue-world .deadline-heading>strong{font:600 16px/1.6 var(--cal-font)}
+.office-app.cal-app .initial-blue-world .deadline-heading>svg{width:16px;height:16px;color:#597bb0}
+.initial-blue-world .deadline-attention{font:400 10px/1.6 var(--cal-font);color:#597bb0;background:#edf2f9;padding:3px 6px;border-radius:4px}
+.initial-blue-world .deadline-list{margin:16px 0 0;padding:0;max-height:340px;scrollbar-color:#bac8da #f4f7fb}
+.initial-blue-world .deadline-list>li+li{border-top:1px solid #e2e8f0}
+.office-app.cal-app .initial-blue-world .deadline-item{padding:15px 0;gap:10px;color:#25354b;align-items:flex-start}
+.office-app.cal-app .initial-blue-world .deadline-item:hover{background:#f7f9fc}
+.initial-blue-world .deadline-date{flex-basis:44px}
+.initial-blue-world .deadline-date b{font:500 11px/1.8 var(--cal-font);color:#3b5c94;display:inline-block;padding:2px 5px;border-radius:4px;background:#edf2f9}
+.initial-blue-world .deadline-detail{white-space:normal;line-height:1.8}
+.office-app.cal-app .initial-blue-world .deadline-detail strong{color:#25354b;font:600 12px/1.8 var(--cal-font)}
+.initial-blue-world .deadline-detail>span{display:block;color:#64748b;font-size:11px}
+.initial-blue-world .deadline-unwritten{font-size:10px;color:#526780;background:#e5edf8;border-radius:4px;padding:2px 5px}
+.office-app.cal-app .initial-blue-world .deadline-empty{color:#64748b;font:400 13px/1.9 var(--cal-font);margin:20px 0 6px}
+.office-app.cal-app .initial-blue-world .deadline-board button:focus-visible{outline-color:#4b6fae}
+
+/* Both home and the original work dialog expose the same navigation. */
+.office-app.cal-app .initial-blue-nav{flex-shrink:0;background:#fff;border-bottom:1px solid #e2e8f0;color:#25354b;font-family:var(--cal-font)}
+.office-app.cal-app .initial-blue-nav .nh-topnav-inner{max-width:1240px;margin:auto;min-height:68px;padding:0 32px;gap:28px}
+.office-app.cal-app .initial-blue-nav .nh-topnav-links{display:flex;flex:1;align-items:center;justify-content:space-between;gap:16px}
+.office-app.cal-app .initial-blue-nav .nh-topnav-brand strong{font:700 25px/1.2 var(--cal-font);letter-spacing:-1.5px;color:#25354b}
+.office-app.cal-app .initial-blue-nav nav{display:flex;gap:3px;align-items:center}
+.office-app.cal-app .initial-blue-nav nav button{color:#64748b;background:transparent;border:0;box-shadow:none;padding:8px 10px;min-height:38px;border-radius:5px;font:500 12px/1.5 var(--cal-font);white-space:nowrap}
+.office-app.cal-app .initial-blue-nav nav button:hover{background:#f4f7fb}
+.office-app.cal-app .initial-blue-nav nav button.is-current{background:#edf2f9;color:#3b5c94}
+.office-app.cal-app .initial-blue-nav .nh-icon{border:0;background:transparent;color:#64748b;box-shadow:none}
+.office-app.cal-app .initial-blue-nav .nh-workspace-switch{background:#f7f9fc;border:1px solid #e2e8f0;box-shadow:none;color:#526780;font:400 11px/1.5 var(--cal-font);border-radius:6px}
+.office-app.cal-app dialog.initial-blue-workspace{--ink:#25354b;--muted:#64748b;--green:#4b6fae;--line:#e2e8f0;--essay-paper:#f4f7fb;--paper:#fff;background:#fff;color:#25354b;scrollbar-color:#bac8da #f4f7fb}
+.office-app.cal-app dialog.initial-blue-workspace>.room-work-content{flex:1;min-height:0;height:auto;overflow:auto;scrollbar-color:#bac8da #f4f7fb}
+.initial-work-context{display:flex;align-items:center;gap:16px;padding:8px 32px;border-bottom:1px solid #edf1f6;flex-shrink:0;color:#64748b;font-size:11px;background:#fff}
+.initial-work-context>button{display:inline-flex;align-items:center;gap:7px;min-height:32px;font:400 12px/1.5 var(--cal-font);color:#64748b}
+.initial-work-context>button:last-child{margin-left:auto}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip{height:auto;min-height:40px;padding:9px 32px;background:#f7f9fc;border-bottom:1px solid #e2e8f0;gap:10px}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip :is(.reaction-avatar,.portrait){display:none}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip p{display:none}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip:is(.phase-busy,.phase-success,.phase-error) p{display:block;margin:0;color:inherit;font-size:12px}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip:is(.phase-busy,.phase-success,.phase-error) .companion-caption{display:none}
+.office-app.cal-app .initial-blue-workspace :is(.companion-caption,.companion-state){color:#64748b;font:400 12px/1.7 var(--cal-font)}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip.phase-success{background:#edf2f9}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip.phase-error{background:#fff3f3}
+.office-app.cal-app .initial-blue-workspace .work-companion-strip.phase-error .companion-state{color:#a34343}
+
+/* Preserve all company navigation and search controls, arrange them above the page. */
+.office-app.cal-app .initial-blue-workspace .essay-directory{position:static;display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;max-width:1160px;margin:auto;height:auto;max-height:210px;padding:20px 40px;border:0;border-bottom:1px solid #e2e8f0;background:#fff;overflow:auto;scrollbar-color:#bac8da #f4f7fb}
+.office-app.cal-app .initial-blue-workspace .essay-directory-title,.office-app.cal-app .initial-blue-workspace .essay-nav-label{display:none}
+.office-app.cal-app .initial-blue-workspace .essay-search{width:300px;max-width:100%;margin:0 12px 0 0;flex-shrink:0}
+.office-app.cal-app .initial-blue-workspace .essay-directory>.essay-company,.office-app.cal-app .initial-blue-workspace .essay-directory>div{width:auto;flex-shrink:0}
+.office-app.cal-app .initial-blue-workspace .essay-company{gap:8px;min-height:38px;padding:8px 12px;font-size:12px;border-radius:6px}
+.office-app.cal-app .initial-blue-workspace .essay-nav-questions{border-color:#d6dfec;margin:6px 0 0;padding-left:0;border-left:0;max-width:300px}
+.office-app.cal-app .initial-blue-workspace .essay-nav-questions button{font-size:11px;max-width:300px}
+.office-app.cal-app .initial-blue-workspace .profile-field-group{border:1px solid #e2e8f0;border-radius:8px;background:#fff;padding:20px;margin:0 0 20px;min-width:0}
+.office-app.cal-app .initial-blue-workspace .profile-field-group legend{color:#25354b;font-size:13px;font-weight:600;padding:0 6px}
+.office-app.cal-app .initial-blue-workspace .profile-group-description{color:#64748b;font-size:12px}
+.office-app.cal-app .initial-blue-workspace .profile-record-footer button{color:#64748b}
+.office-app.cal-app .initial-blue-workspace .profile-field [aria-invalid=true]{border-color:#a34343;outline-color:#a34343}
+
+/* Original cross-page handoff keeps its dialog and actions, with neutral styling. */
+.office-app.cal-app .initial-blue-world .office-messenger{--ink:#25354b;--line:#e2e8f0;--pixel-paper:#fff;--pixel-panel:#f4f7fb;--pixel-line:#e2e8f0;--pixel-edge:#acbdd4;--pixel-green:#4b6fae;background:#fff;color:#25354b;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 20px 70px #25354b24;font-family:var(--cal-font);scrollbar-color:#bac8da #f4f7fb}
+.office-app.cal-app .initial-blue-world .office-messenger::backdrop{background:#25354b55;backdrop-filter:blur(2px)}
+.office-app.cal-app .initial-blue-world .office-messenger :is(.messenger-title,.messenger-header,.messenger-thread,.messenger-replies){background:#fff;color:#64748b;border-color:#e2e8f0;box-shadow:none}
+.office-app.cal-app .initial-blue-world .office-messenger :is(.messenger-title,.messenger-replies){background:#f7f9fc}
+.office-app.cal-app .initial-blue-world .office-messenger :is(strong,.messenger-person strong){color:#25354b}
+.office-app.cal-app .initial-blue-world .office-messenger :is(.messenger-avatar,.portrait){display:none}
+.office-app.cal-app .initial-blue-world .messenger-bubble{background:#f4f7fb;border:1px solid #e2e8f0;border-radius:8px;color:#4b5e77;box-shadow:none}
+.office-app.cal-app .initial-blue-world .messenger-bubble::before,.office-app.cal-app .initial-blue-world .messenger-bubble::after{display:none}
+.office-app.cal-app .initial-blue-world .messenger-reply-options button{background:#4b6fae;border:1px solid #4b6fae;color:#fff;box-shadow:none;border-radius:6px;padding:10px 14px;font:500 12px/1.6 var(--cal-font)}
+.office-app.cal-app .initial-blue-world .messenger-reply-options button:hover{background:#3b5c94}
+.office-app.cal-app .initial-blue-world :is(.messenger-date,.messenger-time,.messenger-sender,.messenger-choice-label,.messenger-reply-prompt,.messenger-person>span,.messenger-team,.messenger-close){color:#64748b}
+.office-app.cal-app .initial-blue-world .office-messenger{animation:none;padding:0;--message-ink:#25354b;--message-muted:#64748b;--message-line:#e2e8f0;--board-grain:none}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-person strong{font:600 17px/1.5 var(--cal-font)}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-title{font:400 11px/1.6 var(--cal-font);padding:12px 20px}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-close{border:0;background:transparent;box-shadow:none;border-radius:6px;color:#64748b}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-close:hover{background:#edf2f9}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-reply-prompt{background:#f7f9fc;border:0;padding:0}
+.office-app.cal-app .initial-blue-world .office-messenger .messenger-date>span{background:#e2e8f0}
+.office-app.cal-app .initial-blue-world .messenger-reply-options>button::before,.office-app.cal-app .initial-blue-world .messenger-reply-options>button::after{display:none}
+.office-app.cal-app .initial-blue-world .office-messenger button:focus-visible{outline-color:#4b6fae}
+@media(max-width:1050px){
+ .office-app.cal-app .initial-blue-nav .nh-topnav-inner{flex-wrap:wrap;gap:12px;padding:16px 24px}
+ .office-app.cal-app .initial-blue-nav .nh-topnav-links{display:contents}
+ .office-app.cal-app .initial-blue-nav .nh-topnav-actions{margin-left:auto;order:1}
+ .office-app.cal-app .initial-blue-nav nav{order:2;flex-basis:100%;overflow:auto;padding-top:8px;border-top:1px solid #edf1f6}
+ .initial-home-columns{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
+}
+@media(max-width:760px){
+ .initial-home-columns{grid-template-columns:1fr;gap:32px}
+ .initial-work-context{padding:6px 24px}
+ .office-app.cal-app .initial-blue-workspace .work-companion-strip{padding:8px 24px}
+ .office-app.cal-app .initial-blue-workspace .essay-directory{padding:16px 24px;max-height:180px}
+ .office-app.cal-app .initial-blue-workspace .essay-search{width:100%;margin:0}
+ .office-app.cal-app .initial-blue-workspace .profile-field-group{padding:16px}
+}
+@media(pointer:coarse){.office-app.cal-app .initial-blue-nav nav button,.initial-work-context>button{min-height:44px}}

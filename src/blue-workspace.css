@@ -1,0 +1,152 @@
+/* Shared interior pages: the same white canvas and muted blue as the home. */
+.office-app.cal-app .blue-workspace{
+  --ink:#25354b;--muted:#64748b;--green:#4b6fae;--line:#e2e8f0;--paper:#fff;
+  --light:#edf2f9;--essay-blue:#4b6fae;--essay-paper:#f4f7fb;--shadow:none;
+  --reading-font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:#fff;font-family:var(--reading-font);font-size:14px;
+  min-height:calc(100dvh - 68px);position:relative;outline:none;
+}
+.office-app.cal-app .blue-workspace .room-work-content{height:auto;min-height:0;overflow:visible;padding:0;background:#fff;background-image:none;color:var(--ink)}
+.office-app.cal-app .blue-workspace .document-workspace{display:block;background:#fff}
+.office-app.cal-app .blue-workspace .document-stage,
+.office-app.cal-app .blue-workspace .essay-stage{max-width:1160px;width:100%;margin:0 auto;padding:48px 40px 72px}
+.office-app.cal-app .blue-workspace :is(h1,h2,h3,h4,strong,b){color:var(--ink)}
+.office-app.cal-app .blue-workspace :is(.page-heading,.cj-heading,.essay-stage-heading){align-items:flex-start;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--line);gap:24px}
+.office-app.cal-app .blue-workspace :is(.page-heading,.cj-page,.essay-stage-heading) h1{font-size:32px;line-height:1.4;letter-spacing:-1.1px;font-weight:700}
+.office-app.cal-app .blue-workspace :is(.page-heading,.cj-heading,.essay-stage-heading) p{font-size:13px;line-height:1.8;color:var(--muted);margin-top:10px}
+.office-app.cal-app .blue-workspace .page-heading .eyebrow{display:none}
+.office-app.cal-app .blue-workspace .essay-breadcrumb{font-size:11px;color:var(--muted);margin-bottom:10px}
+.office-app.cal-app .blue-workspace :is(.button,.cj-button){border:1px solid #d6dfec;border-radius:6px;background:#fff;color:#4b5e77;box-shadow:none;min-height:38px;font-size:12px;padding:9px 13px}
+.office-app.cal-app .blue-workspace :is(.button,.cj-button):hover:not(:disabled){background:#f4f7fb;border-color:#acbdd4}
+.office-app.cal-app .blue-workspace :is(.button.primary,.cj-button.cj-primary){background:#4b6fae;border-color:#4b6fae;color:#fff}
+.office-app.cal-app .blue-workspace :is(.button.primary,.cj-button.cj-primary):hover:not(:disabled){background:#3b5c94;border-color:#3b5c94}
+.office-app.cal-app .blue-workspace .button.soft{background:#edf2f9;color:#3b5c94;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .button.danger{background:#fff;color:#a34343;border-color:#ecd9d9}
+.office-app.cal-app .blue-workspace :is(.icon-button,.text-button){color:#64748b;font-size:12px}
+.office-app.cal-app .blue-workspace .icon-button{border-color:transparent;background:transparent;border-radius:6px}
+.office-app.cal-app .blue-workspace :is(.icon-button,.text-button):hover{color:#3b5c94;background:#edf2f9}
+.office-app.cal-app .blue-workspace :is(input,select,textarea){color:#25354b;border-color:#d6dfec;border-radius:6px;background:#fff;font-size:14px;line-height:1.75}
+.office-app.cal-app .blue-workspace :is(input,textarea)::placeholder{color:#738299}
+.office-app.cal-app .blue-workspace :is(input,textarea,select):focus{outline:2px solid #acbdd4;outline-offset:1px}
+.office-app.cal-app .blue-workspace :is(button,a,summary):focus-visible{outline:2px solid #4b6fae;outline-offset:3px}
+.office-app.cal-app .blue-workspace input[type=checkbox]{accent-color:#4b6fae}
+.office-app.cal-app .blue-workspace :is(.search-box,.essay-search,.cj-search){border-color:#d6dfec;background:#fff;border-radius:6px;color:#64748b}
+.office-app.cal-app .blue-workspace :is(.search-box,.essay-search,.cj-search):focus-within{outline:2px solid #acbdd4;outline-offset:2px}
+.office-app.cal-app .blue-workspace :is(.search-box,.essay-search,.cj-search) input{border:0;outline:none;background:transparent;box-shadow:none}
+.office-app.cal-app .blue-workspace :is(.helper,.meta,.field small,.check-label,.muted-copy,.record-count){color:#64748b;font-size:12px;line-height:1.8}
+.office-app.cal-app .blue-workspace :is(.field>span,.profile-field>label){color:#4b5e77;font-size:13px}
+.office-app.cal-app .blue-workspace :is(.notice,.ai-status,.staff-intro,.direction-scope,.direction-note){background:#f4f7fb;border:1px solid #e2e8f0;border-radius:8px;color:#526780;box-shadow:none;font-size:12px;line-height:1.8}
+.office-app.cal-app .blue-workspace :is(.notice,.ai-status) strong{color:inherit}
+.office-app.cal-app .blue-workspace :is(.card,.detail-card,.settings-card){background:#fff;border-color:#e2e8f0;border-radius:8px;box-shadow:none}
+.office-app.cal-app .blue-workspace :is(.card,.detail-card) p{color:#64748b;font-size:14px;line-height:1.85}
+.office-app.cal-app .blue-workspace :is(.card,.detail-card) h3{font-size:16px}
+.office-app.cal-app .blue-workspace :is(.empty,.small-empty,.profile-empty){background:#f7f9fc;border:1px dashed #d6dfec;border-radius:8px;color:#64748b;padding:48px 24px}
+.office-app.cal-app .blue-workspace .empty-icon{background:#eaf0f8;color:#597bb0;border-radius:12px;width:48px;height:48px}
+.office-app.cal-app .blue-workspace .empty p{color:#64748b;font-size:13px}
+.office-app.cal-app .blue-workspace :is(.pill,.status,.category-tag,.record-status,.compact-record-status,.cj-badge,.due,.sample-label){background:#edf2f9;color:#526780;border-color:#e2e8f0;border-radius:4px}
+.office-app.cal-app .blue-workspace :is(.record-status.confirmed,.compact-record-status.confirmed,.compact-record-status.writing){background:#e5edf8;color:#3b5c94}
+.office-app.cal-app .blue-workspace :is(.tabs,.cj-filters){background:transparent;border:0;border-bottom:1px solid #e2e8f0;border-radius:0;gap:4px;padding:0 0 8px;box-shadow:none}
+.office-app.cal-app .blue-workspace :is(.tabs,.cj-filters) button{color:#64748b;border-radius:5px;min-height:34px;font-size:12px;padding:7px 11px;background:transparent;box-shadow:none}
+.office-app.cal-app .blue-workspace :is(.tabs button.selected,.cj-filters button[aria-pressed=true]){background:#edf2f9;color:#3b5c94;border-color:transparent;box-shadow:none}
+.office-app.cal-app .blue-workspace :is(.tabs,.cj-filters) button:hover{background:#f4f7fb;color:#3b5c94}
+.office-app.cal-app .blue-workspace .portrait{display:none}
+
+/* Libraries: common full-width rows, compact metadata, and unboxed headings. */
+.office-app.cal-app .blue-workspace :is(.experience-browser,.essay-shelf){max-width:none;margin:0}
+.office-app.cal-app .blue-workspace :is(.compact-experience-row,.compact-company-row,.compact-question-row){border-color:#e2e8f0;border-radius:0;padding-top:22px;padding-bottom:22px}
+.office-app.cal-app .blue-workspace :is(.compact-experience-row,.compact-company-row,.compact-question-row):hover{background:#f7f9fc}
+.office-app.cal-app .blue-workspace .compact-record-main>strong{font-size:15px;font-weight:600;color:#25354b}
+.office-app.cal-app .blue-workspace :is(.compact-record-preview,.compact-record-meta){font-size:12px;color:#64748b}
+.office-app.cal-app .blue-workspace .compact-company-icon{background:#edf2f9;color:#597bb0;border:0;border-radius:8px}
+.office-app.cal-app .blue-workspace .cj-page{color:#25354b}
+.office-app.cal-app .blue-workspace .cj-filters button>span{color:inherit}
+.office-app.cal-app .blue-workspace .cj-table{border-color:#e2e8f0;border-radius:8px}
+.office-app.cal-app .blue-workspace .cj-table-head{background:#f4f7fb;color:#64748b;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .cj-job-row:hover{background:#f7f9fc}
+.office-app.cal-app .blue-workspace :is(.cj-company-mark,.company-mark){background:#edf2f9;color:#597bb0;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace :is(.cj-toolbar,.list-tools){gap:16px;align-items:center}
+
+/* Writing: the company shelf replaces the fixed navigation sidebar. */
+.office-app.cal-app .blue-workspace .essay-studio{display:block;min-height:0}
+.office-app.cal-app .blue-workspace .essay-browser-tools{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px;font-size:12px;color:#64748b}
+.office-app.cal-app .blue-workspace .essay-browser-tools .essay-search{width:340px;max-width:100%;margin:0;min-height:40px}
+.office-app.cal-app .blue-workspace .writing-layout{grid-template-columns:minmax(0,1fr) 292px;gap:32px;max-width:none;align-items:start}
+.office-app.cal-app .blue-workspace .writing-side{background:#f7f9fc;border-color:#e2e8f0;padding:20px;border-radius:8px}
+.office-app.cal-app .blue-workspace .side-staff{background:transparent;border-bottom:1px solid #e2e8f0;padding:0 0 16px;margin-bottom:18px}
+.office-app.cal-app .blue-workspace .side-staff small{color:#64748b}
+.office-app.cal-app .blue-workspace .essay-editor{font-size:16px;line-height:1.9;padding:20px 16px;border:1px solid #e2e8f0;min-height:440px;border-radius:6px;color:#25354b}
+.office-app.cal-app .blue-workspace .essay-savebar{position:static;border:0;margin-bottom:20px;background:#fff}
+.office-app.cal-app .blue-workspace .essay-stage:has(.writing-layout) .essay-stage-heading{padding-bottom:20px;margin-bottom:20px}
+.office-app.cal-app .blue-workspace .experience-option{background:#fff;border-color:#e2e8f0;color:#4b5e77}
+.office-app.cal-app .blue-workspace .experience-option.selected{background:#edf2f9;border-color:#acbdd4}
+.office-app.cal-app .blue-workspace :is(.small-source,.review-checklist,.review-checklist svg){color:#64748b}
+.office-app.cal-app .blue-workspace .experience-entry{max-width:780px;margin:0;border:0;padding:0}
+.office-app.cal-app .blue-workspace .experience-entry textarea{font-size:14px}
+
+/* Tracking and direction: figures first, then the records and next actions. */
+.office-app.cal-app .blue-workspace .stat-row{padding:22px 0;background:#fff;border:0;border-bottom:1px solid #e2e8f0;border-radius:0;margin-bottom:24px;gap:28px}
+.office-app.cal-app .blue-workspace .stat-row>div{padding:0 28px 0 0;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .stat-row strong{font-size:30px;color:#3b5c94;letter-spacing:-1px}
+.office-app.cal-app .blue-workspace .stat-row span{font-size:12px;color:#64748b}
+.office-app.cal-app .blue-workspace .table-wrap{border-radius:8px;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .table-wrap th{background:#f4f7fb;color:#64748b}
+.office-app.cal-app .blue-workspace .table-wrap td{font-size:13px;border-color:#e2e8f0;color:#64748b}
+.office-app.cal-app .blue-workspace .table-wrap td strong{font-size:14px}
+.office-app.cal-app .blue-workspace .direction-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px}
+.office-app.cal-app .blue-workspace .direction-grid h2{font-size:16px}
+.office-app.cal-app .blue-workspace .step-number{background:#edf2f9;color:#597bb0;border:0;border-radius:5px}
+.office-app.cal-app .blue-workspace .direction-note{padding:20px}
+.office-app.cal-app .blue-workspace .direction-note h3{font-size:14px}
+.office-app.cal-app .blue-workspace .direction-note p{font-size:12px;color:#64748b}
+.office-app.cal-app .blue-workspace .review-layout{grid-template-columns:minmax(0,1fr) 320px;justify-content:stretch;gap:28px}
+.office-app.cal-app .blue-workspace .review-feedback{background:#f7f9fc}
+
+/* Profile and settings share the same segmented controls and flat forms. */
+.office-app.cal-app .blue-workspace .profile-categories{display:flex;flex-wrap:wrap;gap:8px}
+.office-app.cal-app .blue-workspace .profile-categories button{min-height:38px;font-size:12px;background:#fff;color:#64748b;border-color:#e2e8f0;padding:8px 12px}
+.office-app.cal-app .blue-workspace .profile-categories button.selected{background:#edf2f9;color:#3b5c94;border-color:#acbdd4}
+.office-app.cal-app .blue-workspace :is(.profile-intro-icon,.profile-categories small,.profile-required,.connection-icon){background:#edf2f9;color:#597bb0}
+.office-app.cal-app .blue-workspace :is(.profile-record summary,.profile-save){background:#f7f9fc;color:#4b5e77;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .profile-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.office-app.cal-app .blue-workspace .prompt-layout{grid-template-columns:minmax(0,1fr) 280px;gap:28px}
+.office-app.cal-app .blue-workspace .prompt-layout>aside{background:#f7f9fc}
+.office-app.cal-app .blue-workspace .connection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.office-app.cal-app .blue-workspace .modal{background:#fff;color:#25354b;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 20px 80px #25354b24;padding:28px}
+.office-app.cal-app .blue-workspace .modal::backdrop{background:#25354b55;backdrop-filter:blur(2px)}
+.office-app.cal-app .blue-workspace .modal :is(p,textarea){font-size:14px}
+.office-app.cal-app .blue-workspace .workspace-feedback{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;max-width:90vw;padding:12px 18px;border:1px solid #d6dfec;border-radius:8px;background:#25354b;color:#fff;box-shadow:0 6px 24px #25354b18;font-size:12px}
+.office-app.cal-app .blue-workspace :is(.profile-section-title,.direction-scope>div>svg,.profile-section-heading p,.profile-empty p,.profile-save .check-label,.profile-source summary){color:#64748b}
+.office-app.cal-app .blue-workspace .profile-note{background:#f4f7fb;color:#64748b!important}
+.office-app.cal-app .blue-workspace .stat-row>div{border-radius:0}
+.office-app.cal-app .blue-workspace .cj-company-initial{background:#edf2f9;color:#597bb0;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .cj-preparation{background:#f7f9fc;border-radius:8px;border-color:#e2e8f0}
+.office-app.cal-app .blue-workspace .profile-save{position:static;margin-top:24px}
+.office-app.cal-app .blue-workspace .modal{--ink:#25354b;--muted:#64748b;--green:#4b6fae;--line:#e2e8f0;--pixel-paper:#fff;--pixel-panel:#f4f7fb;--pixel-line:#e2e8f0;--pixel-edge:#acbdd4;--pixel-green:#4b6fae}
+.office-app.cal-app .blue-workspace .modal,.office-app.cal-app .blue-workspace .modal *{scrollbar-color:#bac8da #f4f7fb;scrollbar-width:thin}
+.office-app.cal-app .blue-workspace .modal .modal-head{margin:-28px -28px 24px;padding:18px 24px;background:#f4f7fb;border-bottom:1px solid #e2e8f0}
+.office-app.cal-app .blue-workspace .modal .modal-head h2{color:#25354b;font-size:18px}
+.office-app.cal-app .blue-workspace .cj-page .modal .button.primary{background:#4b6fae;border-color:#4b6fae;color:#fff}
+@media(max-width:1000px){
+  .office-app.cal-app .blue-workspace :is(.writing-layout,.direction-grid,.review-layout,.prompt-layout){grid-template-columns:minmax(0,1fr)}
+  .office-app.cal-app .blue-workspace .writing-main{max-width:none}
+  .office-app.cal-app .blue-workspace .essay-editor{max-width:none}
+}
+@media(max-width:760px){
+  .office-app.cal-app .blue-workspace :is(.document-stage,.essay-stage){padding:32px 24px 48px}
+  .office-app.cal-app .blue-workspace :is(.page-heading,.cj-heading,.essay-stage-heading){flex-wrap:wrap;gap:16px;padding-bottom:24px;margin-bottom:24px}
+  .office-app.cal-app .blue-workspace :is(.page-heading,.cj-page,.essay-stage-heading) h1{font-size:29px}
+  .office-app.cal-app .blue-workspace :is(.profile-fields,.connection-grid){grid-template-columns:minmax(0,1fr)}
+  .office-app.cal-app .blue-workspace .essay-browser-tools{flex-wrap:wrap}
+  .office-app.cal-app .blue-workspace .essay-browser-tools .essay-search{width:100%}
+  .office-app.cal-app .blue-workspace .stat-row{gap:14px}
+  .office-app.cal-app .blue-workspace .stat-row>div{padding-right:12px}
+}
+@media(max-width:480px){
+  .office-app.cal-app .blue-workspace :is(.document-stage,.essay-stage){padding:28px 20px 40px}
+  .office-app.cal-app .blue-workspace :is(input,select,textarea){font-size:16px}
+  .office-app.cal-app .blue-workspace .modal{padding:20px}
+  .office-app.cal-app .blue-workspace .modal .modal-head{margin:-20px -20px 20px;padding:16px 20px}
+}
+@media(pointer:coarse){
+  .office-app.cal-app .blue-workspace :is(.button,.cj-button,.icon-button,.tabs button,.cj-filters button,.profile-categories button){min-height:44px}
+}

@@ -1,0 +1,44 @@
+.office-app.cal-app .cal-jobs-workspace .cj-role-panel{min-width:0}
+.office-app.cal-app .cal-jobs-workspace .cj-role-panel .cj-role-hint{margin:0 0 20px;font-size:14px;line-height:1.75;color:#526780}
+.office-app.cal-app .cal-jobs-workspace .cj-role-label{display:block;margin:0 0 8px;font-size:14px;font-weight:600;color:#25354b}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row{display:flex;align-items:stretch;gap:10px;min-width:0}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row input{flex:1;width:100%;min-width:0;min-height:44px;margin:0;padding:10px 12px;font-size:15px;line-height:1.5;color:#25354b;background:#fff;border:1px solid #b8c4d3;border-radius:8px;box-shadow:none}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row input::placeholder{color:#64748b}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row input:focus-visible{outline:2px solid #4b6fae;outline-offset:2px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-panel .cj-button{min-height:44px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row :disabled{cursor:wait;opacity:.65}
+.office-app.cal-app .cal-jobs-workspace .cj-role-input-row button:disabled{cursor:default}
+.office-app.cal-app .cal-jobs-workspace .cj-role-save-hint{margin:8px 0 0;font-size:12px;line-height:1.7;color:#64748b}
+.office-app.cal-app .cal-jobs-workspace .cj-role-status{margin:12px 0 0;font-size:13px;line-height:1.75;color:#365683}
+.office-app.cal-app .cal-jobs-workspace .cj-role-status:empty{display:none}
+.office-app.cal-app .cal-jobs-workspace .cj-role-error{margin:14px 0 0;padding:12px 14px;border:1px solid #ddbbb0;border-radius:8px;background:#fff5f0;color:#8c3724;font-size:13px;line-height:1.75}
+.office-app.cal-app .cal-jobs-workspace .cj-role-result{margin-top:24px;padding:22px;border:1px solid #d9e1eb;border-radius:10px;background:#f8fafc}
+.office-app.cal-app .cal-jobs-workspace .cj-role-result-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.office-app.cal-app .cal-jobs-workspace .cj-role-result-heading h3{margin:0;font-size:17px;font-weight:600;line-height:1.6;color:#25354b}
+.office-app.cal-app .cal-jobs-workspace .cj-role-result-heading>span{font-size:12px;color:#526780}
+.office-app.cal-app .cal-jobs-workspace .cj-role-source-note{margin:10px 0 0;font-size:13px;line-height:1.8;color:#526780}
+.office-app.cal-app .cal-jobs-workspace .cj-role-change-note{margin:12px 0 0;padding:10px 12px;border-left:3px solid #b47d31;background:#fff8e9;color:#785119;font-size:13px;line-height:1.8}
+.office-app.cal-app .cal-jobs-workspace .cj-role-groups{margin-top:22px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-group+.cj-role-group{margin-top:20px;padding-top:20px;border-top:1px solid #dfe6ef}
+.office-app.cal-app .cal-jobs-workspace .cj-role-group h4{margin:0 0 12px;font-size:14px;font-weight:600;line-height:1.6;color:#25354b}
+.office-app.cal-app .cal-jobs-workspace .cj-role-group ul{margin:0;padding:0;list-style:none}
+.office-app.cal-app .cal-jobs-workspace .cj-role-group li+li{margin-top:12px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-entry{display:flex;align-items:flex-start;gap:9px;min-width:0}
+.office-app.cal-app .cal-jobs-workspace .cj-role-entry p{margin:0;min-width:0;white-space:pre-wrap;font-size:14px;line-height:1.85;color:#374151}
+.office-app.cal-app .cal-jobs-workspace .cj-role-scope{display:inline-block;flex-shrink:0;margin-top:3px;padding:2px 6px;font-size:11px;font-weight:500;line-height:1.6;color:#415a7b;background:#eaf0f8;border:1px solid #d3deed;border-radius:4px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-scope.is-unclear{color:#785119;background:#fff5df;border-color:#e6d1a9}
+.office-app.cal-app .cal-jobs-workspace .cj-role-empty{margin:0;font-size:14px;color:#64748b;line-height:1.8}
+.office-app.cal-app .cal-jobs-workspace .cj-role-evidence{margin:3px 0 0}
+.office-app.cal-app .cal-jobs-workspace .cj-role-evidence summary{display:list-item;width:fit-content;min-height:44px;padding:11px 0;font-size:12px;line-height:22px;color:#526780;cursor:pointer}
+.office-app.cal-app .cal-jobs-workspace .cj-role-evidence summary:focus-visible{outline:2px solid #4b6fae;outline-offset:3px}
+.office-app.cal-app .cal-jobs-workspace .cj-role-evidence blockquote{margin:0;padding:10px 12px;border-left:2px solid #b8c6d9;white-space:pre-wrap;font-size:13px;line-height:1.8;color:#526780}
+.office-app.cal-app .cal-jobs-workspace .cj-role-notes{margin:20px 0 0;padding:16px 0 0 18px;border-top:1px solid #dfe6ef;font-size:12px;line-height:1.8;color:#526780}
+.office-app.cal-app .cal-jobs-workspace .cj-role-notes li+li{margin-top:5px}
+@media(max-width:600px){
+  .office-app.cal-app .cal-jobs-workspace .cj-role-input-row{flex-direction:column}
+  .office-app.cal-app .cal-jobs-workspace .cj-role-input-row input{font-size:16px}
+  .office-app.cal-app .cal-jobs-workspace .cj-role-input-row .cj-button{width:100%}
+  .office-app.cal-app .cal-jobs-workspace .cj-role-result{padding:18px 16px}
+  .office-app.cal-app .cal-jobs-workspace .cj-role-entry{flex-direction:column;gap:5px}
+  .office-app.cal-app .cal-jobs-workspace .cj-role-scope{margin-top:0}
+}

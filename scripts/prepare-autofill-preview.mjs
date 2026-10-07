@@ -1,0 +1,11 @@
+import {mkdirSync,readFileSync,writeFileSync,copyFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const target=path.join(root,'public/autofill-preview');mkdirSync(target,{recursive:true});
+for(const file of ['popup.js','popup.css','autofill-core.js'])copyFileSync(path.join(root,'extension',file),path.join(target,file));
+mkdirSync(path.join(target,'icons'),{recursive:true});
+for(const size of [16,32,48,128])copyFileSync(path.join(root,'extension/icons',`moa-${size}.png`),path.join(target,'icons',`moa-${size}.png`));
+const html=readFileSync(path.join(root,'extension/popup.html'),'utf8').replace('<script type="module" src="popup.js">','<script type="module" src="preview-shim.js"></script><script type="module" src="popup.js">');
+writeFileSync(path.join(target,'popup.html'),html);
+console.log('자동 입력 시험 화면에 확장 소스 반영 완료');

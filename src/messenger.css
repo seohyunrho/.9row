@@ -1,0 +1,79 @@
+/* Wooden office message board: texture stays behind solid, readable paper. */
+.office-app dialog.office-messenger {
+  --message-ink:#493722;--message-muted:#705638;--message-line:#c7a575;
+  --board-grain:repeating-linear-gradient(0deg,transparent 0 8px,#61381212 8px 10px,transparent 10px 23px,#ffe3a61a 23px 25px,transparent 25px 39px);
+  position:fixed;inset:auto 28px 24px auto;margin:0;padding:6px;
+  width:410px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 48px);
+  overflow:auto;background:var(--board-grain),#a56e3d;border:3px solid #593a26;
+  box-shadow:inset 2px 2px 0 #d6a063,inset -2px -2px 0 #754725,3px 3px 0 #bd8850,6px 6px 0 #593a26,0 16px 36px #33201435;
+  color:var(--message-ink);font-family:var(--reading-font);text-align:left;
+}
+.office-app dialog.office-messenger::backdrop{background:#27301b14}
+.office-app .office-messenger .messenger-title{
+  display:flex;align-items:center;gap:7px;padding:9px 18px 0;
+  background:var(--board-grain),#69462e;color:#fff0cf;font-family:OfficePixel,monospace;font-size:12px;line-height:1.5;
+}
+.office-app .office-messenger .messenger-team{margin-left:auto;font-family:var(--reading-font);font-size:11px;color:#f4dfb9}
+.office-app .office-messenger .messenger-header{display:flex;align-items:center;gap:12px;padding:15px 14px 16px 20px;background:var(--board-grain),#69462e;border-bottom:3px solid #4f3323;box-shadow:inset 0 -2px 0 #976a42}
+.office-app .office-messenger .messenger-avatar{display:flex;padding:3px;border:2px solid #d5a46c;background:#fff0d0;box-shadow:2px 2px 0 #3e291d}
+.office-app .office-messenger .messenger-person{display:flex;flex-direction:column;gap:3px;flex:1}
+.office-app .office-messenger .messenger-person strong{font:400 19px/1.25 OfficePixel,monospace;color:#fff0cf}
+.office-app .office-messenger .messenger-person>span{font-size:12px;color:#f4dfb9}
+.office-app .office-messenger .messenger-close{display:grid;place-items:center;width:44px;height:44px;min-height:44px;border:1px solid #b38452;background:#543723;color:#fff0cf;box-shadow:2px 2px 0 #3e291d}
+.office-app .office-messenger .messenger-close:hover{background:#7f5635;filter:none}
+.office-app .office-messenger .messenger-thread{padding:19px 18px 24px;background:var(--board-grain),#dfbc86}
+.office-app .office-messenger .messenger-date{display:flex;align-items:center;gap:13px;justify-content:center;color:#624829;font-size:11px;margin-bottom:23px}
+.office-app .office-messenger .messenger-date>span{height:1px;background:#ac8250;width:42px}
+.office-app .office-messenger .messenger-incoming{display:flex;align-items:start;gap:10px}
+.office-app .office-messenger .messenger-incoming>.portrait{flex-shrink:0;margin-top:26px;border:1px solid #875b34;box-shadow:1px 1px 0 #bb8c52}
+.office-app .office-messenger .messenger-message-group{min-width:0;flex:1;display:flex;flex-direction:column;align-items:start;gap:8px}
+.office-app .office-messenger .messenger-sender{font-size:12px;font-weight:600;line-height:1.5;color:#51391f;margin-bottom:1px}
+.office-app .office-messenger .messenger-bubble{
+  padding:12px 15px;margin:0;background:#fff7e4;border:1px solid #ad8958;
+  border-radius:0 4px 4px 4px;box-shadow:2px 2px 0 #bb945e;
+  font-size:14px;line-height:1.85;color:var(--message-ink);word-break:keep-all;overflow-wrap:anywhere;
+}
+.office-app .office-messenger .messenger-time{font-size:10px;color:#624829;line-height:1.5;margin:0 2px}
+.office-app .office-messenger .messenger-replies{padding:10px 14px;background:#e9cea1;border-top:1px solid #b58a52}
+.office-app .office-messenger .messenger-reply-prompt{display:flex;align-items:center;gap:9px;margin:0;padding:10px 12px;background:#fff3dc;border:1px solid #c1a075;color:#715735;font-size:12px;line-height:1.6}
+.office-app .office-messenger .messenger-reply-prompt>svg{flex-shrink:0}
+.office-app .office-messenger .messenger-inline-choices{align-self:stretch;margin-top:8px}
+.office-app .office-messenger .messenger-choice-label{display:block;color:#624829;font-size:11px;line-height:1.5;margin:0 2px 7px}
+.office-app .office-messenger .messenger-reply-options{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:0}
+.office-app .office-messenger .messenger-reply-options>button{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:100%;
+  min-height:44px;padding:10px 15px;border:1px solid #7f673e;border-radius:4px 0 4px 4px;
+  background:#e4e5c7;box-shadow:2px 2px 0 #a78c59,inset 0 1px 0 #faf7df;color:#3f4c2b;
+  font-family:var(--reading-font);font-size:14px;line-height:1.6;text-align:left;
+}
+.office-app .office-messenger .messenger-reply-options>button:hover{--bubble-paper:#d4dcaf;--bubble-edge:#53623a;filter:none}
+.office-app .office-messenger .messenger-reply-options>button:active{--bubble-paper:#c6d09e;--bubble-edge:#53623a}
+/* Draw only the background in pixel steps; keep text and focus outlines intact. */
+.office-app .office-messenger .messenger-bubble,
+.office-app .office-messenger .messenger-reply-options>button{
+  --bubble-paper:#fff7e4;--bubble-edge:#9b774a;
+  --pixel-outline:polygon(8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  position:relative;isolation:isolate;background:transparent;border-color:transparent;border-radius:0;box-shadow:none;
+}
+.office-app .office-messenger .messenger-reply-options>button{--bubble-paper:#e4e5c7;--bubble-edge:#7f673e}
+.office-app .office-messenger .messenger-bubble::before,
+.office-app .office-messenger .messenger-bubble::after,
+.office-app .office-messenger .messenger-reply-options>button::before,
+.office-app .office-messenger .messenger-reply-options>button::after{
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:var(--bubble-edge);clip-path:var(--pixel-outline);
+}
+.office-app .office-messenger .messenger-bubble::after,
+.office-app .office-messenger .messenger-reply-options>button::after{inset:2px;z-index:-1;background:var(--bubble-paper)}
+.office-app .office-messenger button:focus-visible{outline:2px solid #4d6939;outline-offset:3px}
+.office-app .office-messenger .messenger-close:focus-visible{outline-color:#fff0c4}
+@media(max-width:600px){
+  .office-app dialog.office-messenger{inset:auto 12px 16px auto;width:calc(100vw - 24px);max-width:410px;max-height:calc(100dvh - 32px)}
+  .office-app .office-messenger .messenger-thread{padding:16px 18px 20px}
+  .office-app .office-messenger .messenger-replies{padding:9px 12px}
+  .office-app .office-messenger .messenger-bubble{padding:10px 13px}
+}
+@media(max-height:560px){
+  .office-app .office-messenger .messenger-date{margin-bottom:12px}
+  .office-app .office-messenger .messenger-thread{padding-top:12px;padding-bottom:14px}
+}

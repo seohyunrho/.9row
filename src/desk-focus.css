@@ -1,0 +1,16 @@
+/* The office selects a colleague. Each desk contains only that colleague's work. */
+.document-workspace.focused-desk{display:block}
+.office-app .document-workspace-dialog .focused-desk .document-stage{max-width:1120px;margin:0 auto}
+.office-app .document-workspace-dialog .workspace-titlebar .room-back{display:inline-flex;align-items:center;gap:8px;background:#f6f5f4;border:1px solid #e0dedb;border-radius:6px;color:#31302e;min-height:40px;padding:8px 14px;font-size:14px;font-weight:600}
+.office-app .document-workspace-dialog .workspace-titlebar .room-back:hover{background:#eae8e5;border-color:#b9b6b1}
+.office-app .document-workspace-dialog .work-companion-strip{height:64px;min-height:64px}
+.office-app .document-workspace-dialog .work-companion-strip p{display:block;color:#615d59;font:400 13px/1.6 var(--reading-font);margin-top:3px}
+.office-app .document-workspace-dialog .work-companion-strip.phase-success p{color:#386749}
+.office-app .document-workspace-dialog .work-companion-strip.phase-error p{color:#a83329}
+.office-app .document-workspace-dialog .essay-directory{height:calc(100dvh - 120px)}
+@media(max-width:640px){
+  .office-app .document-workspace-dialog .work-companion-strip{height:auto;min-height:64px;padding:10px 16px}
+  .office-app .document-workspace-dialog .work-companion-strip>div{min-width:0}
+  .office-app .document-workspace-dialog .work-companion-strip p{font-size:12px;overflow-wrap:anywhere}
+  .office-app .document-workspace-dialog .essay-directory{height:auto}
+}

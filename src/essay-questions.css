@@ -1,0 +1,19 @@
+.office-app .essay-questions-form{min-width:0}
+.office-app .essay-questions-hint{color:#64748b;font-size:13px;line-height:1.7;margin:12px 0 18px}
+.office-app .essay-question-fields{display:grid;gap:18px}
+.office-app .essay-question-card{border:1px solid #dce3ed;border-radius:10px;padding:18px;background:#fff;min-width:0}
+.office-app .essay-question-card-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.office-app .essay-question-card-heading h3{font-size:16px;margin:0;color:#25354b;font-weight:600}
+.office-app .essay-question-card-heading button{display:inline-flex;align-items:center;gap:5px;min-height:40px;color:#a43f3f}
+.office-app .essay-question-card .field{margin-bottom:14px}
+.office-app .essay-question-card .form-row .field{margin-bottom:0}
+.office-app .essay-questions-form .essay-add-question{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;min-height:44px;margin-top:18px;border-style:dashed;background:#f7f9fc;color:#3b5c94}
+.office-app .essay-question-switcher{display:flex;flex-wrap:wrap;gap:8px;max-width:1120px;margin:0 auto 22px}
+.office-app .essay-question-switcher button{display:flex;gap:8px;align-items:center;min-height:44px;padding:8px 13px;border:1px solid #d6dfec;border-radius:8px;background:#fff;color:#64748b;font-size:13px}
+.office-app .essay-question-switcher button[aria-current=page]{background:#edf2f9;border-color:#4b6fae;color:#3b5c94;font-weight:600}
+.office-app .essay-question-switcher small{font-size:11px;font-weight:400}
+.office-app .essay-limit-message{margin:0 0 16px;color:#a43f3f;font-size:13px;line-height:1.7}
+.office-app .essay-count-over,.office-app .compact-record-meta .essay-count-over,.office-app .gemini-draft .essay-count-over{color:#a43f3f!important;font-weight:600}
+.office-app.cal-app .essay-editor.essay-editor-over{border-color:#c97979}
+.office-app .essay-question-switcher button:focus-visible,.office-app .essay-questions-form button:focus-visible{outline:2px solid #4b6fae;outline-offset:3px}
+@media(max-width:640px){.office-app .essay-question-card{padding:14px}.office-app .essay-question-card .form-row{grid-template-columns:1fr;gap:14px}.office-app .essay-question-card-heading button{min-height:44px}.office-app .essay-question-switcher{gap:6px}}

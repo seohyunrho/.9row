@@ -1,0 +1,80 @@
+/* A quiet document surface inside the illustrated office. */
+.office-app dialog {
+  --pixel-paper:#fdfdfb;--pixel-panel:#f2f4ee;--pixel-line:#d6dcd1;
+  --pixel-edge:#bac4b3;--pixel-green:#52664b;--ink:#303c2e;--line:#d8ded3;
+  font-family:var(--reading-font);border:1px solid #b8c2b1;background:#fdfdfb;
+  box-shadow:0 12px 38px #18231525;
+}
+.office-app dialog::backdrop{background:#18241933}
+.office-app dialog :is(h1,h2,h3,h4,strong,b){font-weight:600;letter-spacing:-.2px}
+.office-app dialog :is(button,input,textarea,select){font-family:var(--reading-font)}
+.office-app dialog :is(input,textarea,select){background:#fff;border:1px solid #bac5b2;box-shadow:none;color:#303c2e}
+.office-app dialog :is(input,textarea)::placeholder{color:#7d8876}
+.office-app .room-work-content{background:#f5f6f2;height:calc(100% - 136px)}
+.office-app .workspace-titlebar,.office-app .conversation-top{
+  background:#edf1e9;border-bottom:1px solid #ccd5c5;color:#485a3d;
+}
+.office-app .conversation-body{background:#fdfdfb;gap:24px}
+.office-app .conversation-top{font-family:var(--reading-font);font-size:13px}
+.office-app .colleague-speech{font-size:17px;color:#303c2e;line-height:1.85}
+.office-app .speaker-portrait strong{font-family:OfficePixel,monospace;font-weight:400;font-size:17px}
+.office-app .speaker-portrait small{font-family:var(--reading-font);color:#73806b;font-size:11px}
+.office-app .speaker-portrait .portrait{outline:1px solid #c9d2c1;outline-offset:4px}
+.office-app .conversation-disclosure{border-top:1px solid #e0e5db;color:#6f7968}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button){
+  background:#fafbf8;border:1px solid #c4cebb;box-shadow:none;color:#44533b;
+}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button):hover:not(:disabled){background:#edf2e8;border-color:#91a480}
+.office-app dialog :is(.button,.conversation-options>button,.tabs>button,.profile-categories>button,.version-list>button):active:not(:disabled){background:#e3eadb;box-shadow:none}
+.office-app dialog :is(.button.primary,.conversation-primary){background:#536a45;color:#fff;border:1px solid #536a45;box-shadow:none}
+.office-app dialog :is(.button.primary,.conversation-primary):hover:not(:disabled){background:#465c39;color:#fff}
+.office-app dialog .button.danger{background:#fffaf7;color:#944e38;border-color:#d8baaa}
+.office-app dialog :is(.tabs>button.selected,.profile-categories>button.selected,.version-list>button.selected){background:#eaf0e4;border-color:#92a87f;color:#354c2b;box-shadow:inset 0 -2px 0 #8fa47e}
+.office-app dialog :is(.icon-button,.workspace-titlebar>div>button,.conversation-top>button){background:#f8faf5;border:1px solid #c4cfbb;color:#4d6041;box-shadow:none}
+.office-app .modal-head{background:#edf1e9;border-bottom:1px solid #ccd5c5}
+.office-app .modal-head h2{font-size:19px;color:#34452e}
+.office-app dialog :is(.card,.detail-card,.record-list,.writing-main,.writing-side,.table-wrap,.profile-record,.stat-row>div,.essay-job-bar,.direction-scope){background:#fff;border:1px solid #d4dccd;box-shadow:none}
+.office-app dialog :is(.notice,.staff-intro,.direction-note,.profile-save){background:#eff3e9;border:1px solid #d7e0cd;color:#556748}
+.office-app dialog :is(.source-text,.version-preview,.profile-note,.ai-status){background:#f4f6f0;border:1px solid #dce2d5;color:#59684e}
+.office-app dialog :is(.source-text,.version-preview){padding:20px;line-height:1.9}
+.office-app dialog :is(.category-tag,.pill,.record-status,.status,.count,.profile-record-number,.profile-categories small,.question-tabs span,.step-number){background:#edf1e7;border:1px solid #d5dfcc;color:#5b6f4c}
+.office-app dialog :is(.search-box,.experience-option,.record-item,.profile-empty){background:#fff;border:1px solid #d3dccb}
+.office-app dialog :is(.record-item.selected,.experience-option.selected){background:#f0f5e9;border-color:#9fb88a}
+.office-app dialog :is(.profile-record summary,.writing-steps,.editor-toolbar,th){background:#f3f5ef;border-color:#d9e0d2;color:#5e6e52}
+.office-app dialog :is(.profile-intro-icon,.connection-icon,.empty-icon,.company-mark){background:#edf2e7;border:1px solid #d0dcc3;color:#60754f}
+.office-app dialog .question-tabs{border-bottom:1px solid #d1dcc6}
+.office-app dialog .question-tabs button.active{background:#edf3e7;border:1px solid #adc299}
+.office-app dialog .essay-editor{background:#fff;color:#303b2d;line-height:1.95}
+.office-app dialog .form-footer{border-top:1px solid #dde3d6}
+.office-app dialog .writing-steps b{border:1px solid #cdd8c2;background:#e7eedd}
+.office-app dialog :is(.page-heading h1,.detail-heading h2){font-size:24px;font-weight:650;line-height:1.5}
+.office-app dialog :is(.page-heading p,.card p,.staff-intro p){color:#69745f;font-size:14px}
+.office-app dialog td{border-color:#e0e5d9;color:#5d6c50}
+.office-app .work-companion-strip{height:72px;background:#f6f8f2;border-bottom:1px solid #d8e0ce;padding:10px 25px;gap:15px}
+.office-app .work-companion-strip.phase-success{background:#edf5e9}
+.office-app .work-companion-strip.phase-error{background:#fff3ea}
+.office-app .work-companion-strip p{font-size:13px;color:#5d6d51;margin-top:2px}
+.companion-caption{font-family:var(--reading-font);font-size:12px;font-weight:600;color:#45563a}
+.companion-state{background:transparent;border:0;color:#6c7c5e}
+.reaction-tool{background:#f7faf2;border:1px solid #aaba98;box-shadow:none;width:23px;height:23px;right:-7px;bottom:-5px}
+.phase-success .reaction-tool{background:#e8f3df;border-color:#8ba972}
+.office-app .room-companion{background:#f8faf3e8;border:1px solid #c5d1b7;box-shadow:none;padding:20px}
+.office-app .room-companion p,.office-app .room-companion small{font-family:var(--reading-font);line-height:1.8}
+.office-app .room-companion strong{font-family:OfficePixel,monospace;font-size:15px}
+.office-app .colleague-dock{background:#f5f7ed;border:1px solid #b6c3a6;box-shadow:0 3px 0 #72805d6b;padding:10px}
+.office-app .colleague-dock>div>button{background:#f9fbf4;border:1px solid #c4cfb6;box-shadow:none}
+.office-app .colleague-dock>div>button:hover{background:#e9f0df}
+.office-app .colleague-dock small{font-family:var(--reading-font);font-size:11px;color:#69765a}
+.office-app .colleague-dock .portrait{outline:1px solid #b8c3a5}
+.office-app .dock-records{border-left:1px solid #c4cfb6}
+.office-app .room-memo{background:#fafbf2f2;border:1px solid #c8d2ba;box-shadow:0 3px 10px #39492912;transform:none}
+.office-app .toast{font-family:var(--reading-font);border:1px solid #4c6040;box-shadow:0 4px 15px #1c2d1930}
+@media(max-width:720px){
+ .office-app .work-companion-strip{height:88px;padding:10px 15px}
+ .office-app .room-work-content{height:calc(100% - 146px)}
+ .office-app .colleague-speech{font-size:16px}
+ .office-app .colleague-dock small{font-size:10px}
+ .office-app dialog :is(.page-heading h1,.detail-heading h2){font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){.reaction-tool{transform:none!important;opacity:1!important}}
+.reduce-motion .reaction-tool{transform:none!important;opacity:1!important}

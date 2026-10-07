@@ -1,0 +1,41 @@
+/* A worn paper schedule board in the lower-right corner of the office. */
+.office-app .room-memo{
+  top:auto;bottom:86px;right:4%;width:214px;padding:23px 18px 19px;border:0;border-radius:0;
+  background:none;box-shadow:none;filter:drop-shadow(3px 4px 0 #4c321c65);
+  transform:none;isolation:isolate;
+  --memo-cut:polygon(4px 0,calc(100% - 8px) 0,calc(100% - 8px) 2px,calc(100% - 2px) 2px,calc(100% - 2px) 6px,100% 6px,100% calc(100% - 5px),calc(100% - 4px) calc(100% - 5px),calc(100% - 4px) 100%,6px 100%,6px calc(100% - 2px),0 calc(100% - 2px),0 4px,4px 4px);
+}
+.office-app .room-memo::after{content:"";position:absolute;inset:0;z-index:-2;background:#86603c;clip-path:var(--memo-cut)}
+.office-app .room-memo::before{
+  content:"";position:absolute;inset:3px 3px 4px;z-index:-1;
+  background:linear-gradient(90deg,#c8a56f55,transparent 8%,transparent 94%,#b9936055),#e6cda0;
+  border:0;box-shadow:inset 0 2px 0 #efdbb3,inset 0 -3px 0 #cfb07b;clip-path:var(--memo-cut);
+}
+.office-app .room-memo .memo-pin{
+  top:7px;left:calc(50% - 3px);width:6px;height:6px;border:1px solid #62523a;border-radius:0;
+  background:#929061;box-shadow:inset 1px 1px 0 #c5bc87,1px 2px 0 #6b492b55;
+}
+.office-app .room-memo>div{color:#6a5134;gap:6px}
+.office-app .room-memo>div>svg{width:12px;height:12px}
+.office-app .room-memo strong{font:400 12px/1.5 OfficePixel,monospace}
+.office-app .room-memo p{font:400 13px/1.85 var(--reading-font);color:#533e26;margin:10px 0 14px;overflow-wrap:anywhere}
+.office-app .room-memo small{font:400 10px/1.7 var(--reading-font);color:#705435;border-top:1px dashed #bb9b68;padding-top:8px}
+.office-app .room-memo.deadline-board{width:330px;right:24px;bottom:44px;max-width:calc(100vw - 32px);padding:21px 18px 13px;pointer-events:auto}
+/* Use only the edited corner, preserving the source pixels used by all actors. */
+.room-floor-repair{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;clip-path:polygon(85.7% 65.5%,100% 65.5%,100% 100%,78% 100%,78% 86%,85.7% 86%);image-rendering:pixelated}
+.room-rug-colors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;image-rendering:pixelated}
+.deadline-heading{display:flex;align-items:center;gap:6px}
+.deadline-attention{margin-left:auto;font:400 11px/1.5 var(--reading-font);color:#843d28}
+.deadline-list{list-style:none;padding:3px;margin:7px -3px 0;max-height:min(240px,36dvh);overflow-y:auto;overscroll-behavior:contain;scroll-padding:3px;scrollbar-width:thin;scrollbar-color:#9c774b #dcc18e}
+.deadline-list>li+li{border-top:1px dashed #ba9b6a}
+.office-app .deadline-board .deadline-item{display:flex;align-items:center;gap:8px;width:100%;min-height:40px;padding:8px 3px;text-align:left;background:none;color:#533e26}
+.office-app .deadline-board .deadline-item:hover{background:#f6e3ba80;filter:none}
+.office-app .deadline-board button:focus-visible{outline:2px solid #72532d;outline-offset:2px}
+.deadline-date{flex:0 0 43px}
+.deadline-date b{font:400 14px/1.5 OfficePixel,monospace;white-space:nowrap;color:#66502f}
+.deadline-detail{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 12px/1.6 var(--reading-font)}
+.office-app .deadline-board .deadline-detail strong{font:600 12px/1.6 var(--reading-font)}
+.deadline-detail>span{color:#6d5335}
+.deadline-unwritten{flex-shrink:0;font:600 11px/1.6 var(--reading-font);font-style:normal;color:#843723;white-space:nowrap}
+.needs-writing .deadline-date b{color:#8b3a26}
+.office-app .deadline-board .deadline-empty{font-size:13px;margin:14px 0}

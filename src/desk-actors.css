@@ -1,0 +1,25 @@
+.desk-actor-layer{position:absolute;inset:0;pointer-events:none}
+.actor-clean-patch{position:absolute;background-image:url('/office-empty-v14.png');background-repeat:no-repeat;image-rendering:pixelated}
+.desk-actor{position:absolute;transform:translateX(-50%);pointer-events:none}
+.actor-idle,.actor-frame{position:absolute;inset:0}
+.actor-frame{background-image:url('/office-actors-v14.png');background-size:300% 400%;background-repeat:no-repeat;background-position-y:var(--sprite-row);image-rendering:pixelated}
+.actor-frame-a{background-position-x:0%}
+.actor-frame-b{background-position-x:50%;clip-path:inset(55% 0 0);opacity:0;animation:desk-typing 4200ms steps(1,end) infinite;animation-delay:var(--typing-delay)}
+.actor-looking{background-position-x:100%;opacity:0}
+.desk-selection,.desk-task{z-index:1}
+/* A short typing burst, then a pause. Only the forepaw portion changes. */
+@keyframes desk-typing{
+  0%,6%,12%,18%,24%,30%,36%,42%,100%{opacity:0}
+  3%,9%,15%,21%,27%,33%,39%{opacity:1}
+}
+@media(hover:hover) and (pointer:fine){
+  .room-colleague:hover .actor-idle{opacity:0}
+  .room-colleague:hover .actor-looking{opacity:1}
+  .room-colleague:hover .actor-frame-b{animation-play-state:paused}
+}
+.room-colleague:is(:focus-visible,.talking) .actor-idle{opacity:0}
+.room-colleague:is(:focus-visible,.talking) .actor-looking{opacity:1}
+.room-colleague:is(:focus-visible,.talking) .actor-frame-b{animation-play-state:paused}
+.actors-paused .actor-frame-b,.keyboard-input .actor-frame-b{animation:none;opacity:0}
+.reduce-motion .actor-frame-b{animation:none;opacity:0}
+@media(prefers-reduced-motion:reduce){.actor-frame-b{animation:none;opacity:0}}

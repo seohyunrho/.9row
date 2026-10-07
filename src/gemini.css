@@ -1,0 +1,6 @@
+.gemini-connection .field{margin-top:18px}
+.gemini-connection .connection-actions,.gemini-draft .connection-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.gemini-draft{margin-top:20px;padding-top:18px;border-top:2px solid #c7cbb4}
+.gemini-error{color:#9b3e30;line-height:1.7;margin-top:12px}
+.gemini-result{margin-top:24px;padding-top:18px;border-top:1px solid #c7cbb4}
+.gemini-result textarea{width:100%;line-height:1.9}

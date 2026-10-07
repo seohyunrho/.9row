@@ -1,0 +1,39 @@
+/* Quiet, readable work surfaces inside the existing pixel office. */
+.library-back{margin-bottom:18px;min-height:36px}
+.job-library{width:100%;max-width:none;border:1px solid #c5cbb4;background:#fafaf0;padding:20px}
+.job-library .record-item{width:100%;min-height:86px;border-bottom:1px solid #d7dccb;text-align:left}
+.job-library .record-item>div{flex:1}
+.jobs-workflow .detail-card{width:100%}
+.essay-library{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.essay-library-item{display:flex;flex-direction:column;gap:12px;text-align:left;padding:22px;background:#fafaf0;border:1px solid #bfc7ad;box-shadow:3px 3px 0 #e0e3d2;color:#343b30;min-width:0;cursor:pointer}
+.essay-library-item:hover{border-color:#75815e;background:#f1f4e8}
+.essay-library-item:focus-visible{outline:3px solid #71815c;outline-offset:3px}
+.essay-library-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px}
+.essay-library-item>strong{font-size:17px;line-height:1.6;overflow-wrap:anywhere}
+.essay-library-item p{font-size:14px;line-height:1.7;color:#606653;margin:0;overflow-wrap:anywhere}
+.essay-library-item>small{margin-top:auto;color:#606653;font-size:12px;line-height:1.8}
+.essay-library-item>small>span{display:block;margin-top:6px;color:#4c6138;font-weight:600}
+.experience-entry{padding:26px}
+.requirement-chart{display:flex;align-items:center;gap:24px;margin:25px 0;flex-wrap:wrap}
+.condition-donut{width:176px;height:176px;flex:0 0 176px;border-radius:50%;display:grid;place-items:center}
+.condition-donut>div{width:116px;height:116px;border-radius:50%;background:#fafaf2;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.condition-donut strong{font-size:32px;color:#3d4831}.condition-donut span{font-size:12px;color:#68705b}
+.condition-legend{flex:1;min-width:180px;margin:0;padding:0;list-style:none;display:grid;gap:13px}
+.condition-legend li{display:flex;align-items:start;gap:9px;font-size:13px;line-height:1.5}
+.condition-legend i{width:10px;height:10px;flex:0 0 10px;margin-top:5px}.condition-legend li>span{flex:1;overflow-wrap:anywhere}
+.condition-legend strong{white-space:nowrap;text-align:right}.condition-legend small{display:block;font-weight:400;color:#626951}
+.condition-details{margin:22px 0;border-top:1px solid #d3d8c3;padding-top:14px}.condition-details summary{cursor:pointer;font-size:14px;padding:8px 0}
+.condition-details .requirement-row>span{white-space:nowrap}.condition-details .requirement-row small{font-size:11px}
+.review-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.review-layout>.card{padding:24px;min-width:0}.review-layout h2{font-size:18px;line-height:1.7;margin:0 0 12px}
+.review-layout p{font-size:14px;line-height:1.8}
+.review-original,.review-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:1.9;color:#354032}
+.review-original{margin:18px 0 24px;padding:18px;background:#f3f4e9;border-left:3px solid #a3ad8d}
+.review-text{margin:15px 0}.saved-review h3{font-size:16px}.saved-review>small{font-size:12px;color:#646c56}
+.review-stale{background:#f4ecd6;color:#776035;padding:10px;font-size:13px;line-height:1.7}
+.review-error{color:#954936;font-size:14px}.review-feedback .action-row{flex-wrap:wrap}
+@media(max-width:850px){.review-layout,.essay-library{grid-template-columns:1fr}.requirement-chart{justify-content:center}.condition-legend{min-width:200px}.experience-entry,.review-layout>.card{padding:18px}}
+@media(prefers-reduced-motion:reduce){.condition-donut{animation:none}}
+
+/* Chart geometry must override the global square-corner pixel treatment. */
+.office-app .condition-donut,.office-app .condition-donut>div{border-radius:50%!important}
