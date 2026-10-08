@@ -9,6 +9,8 @@
 .notion-cal-home .nh-topnav{background:#fff;border-bottom:1px solid var(--nc-line)}
 .notion-cal-home .nh-topnav-inner{min-height:68px;gap:40px;max-width:1240px}
 .notion-cal-home .nh-topnav-brand strong{font-size:25px;color:var(--nc-ink);letter-spacing:-1.5px}
+.notion-cal-home .nh-brand-art{display:block;position:relative;overflow:hidden;width:110px;height:25.6px;flex:none}
+.notion-cal-home .nh-brand-art img{position:absolute;width:131.32px;height:65.66px;max-width:none;left:-11.76px;top:-22.04px}
 .notion-cal-home .nh-topnav-links nav{gap:3px}
 .notion-cal-home .nh-topnav-links nav button{font-size:13px;padding:7px 11px;min-height:36px;border-radius:5px;color:var(--nc-muted)}
 .notion-cal-home .nh-topnav-links nav button.is-current{background:#edf2f8;color:var(--nc-ink);font-weight:600}

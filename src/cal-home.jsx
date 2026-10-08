@@ -28,7 +28,7 @@ export function CalShell({page,children}){
     <a href={isWorking?'#workspace-main':'#nh-main'} className="nh-skip" onClick={e=>{e.preventDefault();document.getElementById(isWorking?'workspace-main':'nh-main')?.focus();}}>본문으로 이동</a>
     <header className="nh-topnav">
       <div className="nh-topnav-inner">
-        <button ref={homeRef} className="nh-topnav-brand" onClick={()=>open('home')} aria-label="모아 홈"><strong>모아<span className="ch-brand-dot">.</span></strong></button>
+        <button ref={homeRef} className="nh-topnav-brand" onClick={()=>open('home')} aria-label=".9row 홈"><span className="nh-brand-art"><img src="/9row-logo-2026-10-08-v01.png" alt=".9row" width="1774" height="887"/></span></button>
         <button className="nh-icon nh-menu-toggle" aria-label={mobileNav?'메뉴 접기':'메뉴 펼치기'} aria-expanded={mobileNav} aria-controls="nh-navigation" onClick={()=>setMobileNav(!mobileNav)}>{mobileNav?<X size={20}/>:<Menu size={20}/>}</button>
         <div className={`nh-topnav-links ${mobileNav?'is-open':''}`} id="nh-navigation">
           <nav aria-label="메인 메뉴">{navigation.map(([id,label])=><button key={id} onClick={()=>open(id)} className={page===id?'is-current':''} aria-current={page===id?'page':undefined}>{label}</button>)}</nav>
